@@ -68,13 +68,15 @@ body {
 .content {
     height: 100vh;
     display: grid;
-    grid-template-rows: 100px auto 100px;
+    grid-template-rows: 80px auto 160px;
 }
 
 .header {
     background-color: red;
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
+    letter-spacing: 0.5rem;
+    padding-top: 20px;
 }
 
 .footer {
