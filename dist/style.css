@@ -121,7 +121,20 @@ body {
 /* FOOTER SECTION */
 
 .footer {
+    display: flex;
+    justify-content: center;
+}
+
+.new-game,
+.gameplay-text {
+    width: 800px;
     background-color: #f9c800;
+}
+
+.new-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 
