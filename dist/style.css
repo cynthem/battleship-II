@@ -72,13 +72,66 @@ body {
 }
 
 .header {
-    background-color: red;
     text-align: center;
     font-size: 3.5rem;
     letter-spacing: 0.5rem;
     padding-top: 20px;
+    color: #ff787a;
 }
 
+
+/* GAME BOARDS SECTION */
+
+.gameboards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    padding: 0 60px;
+}
+
+.player-name,
+.computer-name {
+    text-align: center;
+    font-size: 1.75rem;
+    color: #40bc93;
+    font-family: 'Abril Fatface', serif;
+    padding-bottom: 20px;
+}
+
+.player-board,
+.computer-board {
+    width: 360px;
+    height: 360px;
+    display: grid;
+    grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+}
+
+.player-board > button,
+.computer-board > button {
+    height: 35px;
+    width: 35px;
+    background-color: #70c9d3;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+}
+
+
+/* FOOTER SECTION */
+
 .footer {
-    background-color: red;
+    background-color: #f9c800;
+}
+
+
+
+/* DISPLAY TOGGLING STYLES */
+
+.invisible {
+    color: transparent;
+}
+
+.hide {
+    display: none;
 }
