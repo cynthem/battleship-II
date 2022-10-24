@@ -117,6 +117,14 @@ body {
     border-radius: 2px;
 }
 
+.player-board > button:hover {
+    cursor: pointer;
+}
+
+.player-board > button:active {
+    transform: scale(0.9);
+}
+
 
 /* FOOTER SECTION */
 
@@ -129,12 +137,56 @@ body {
 .gameplay-text {
     width: 800px;
     background-color: #f9c800;
+    border-top-left-radius: 160px;
+    border-top-right-radius: 160px;
+    color: white;
+    font-size: 1.5rem;
+    padding-top: 20px;
 }
 
 .new-game {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.new-game-form {
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.new-game-input {
+    background-color: #f9c800;
+    font-family: 'Abril Fatface', serif;
+    font-size: 1.25rem;
+    width: 250px;
+    padding: 6px;
+    border: none;
+    outline: none;
+    border-bottom: 2px dotted white;
+}
+
+.new-game-submit {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25rem;
+    background-color: #f9c800;
+    color: #40bc93;
+    padding: 5px 10px;
+    margin-left: 20px;
+    outline: none;
+    border: 2px solid #40bc93;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.new-game-submit:hover {
+    color: #ff787a;
+    border: 2px solid #ff787a;
+}
+
+.new-game-submit:active {
+    transform: scale(0.9);
 }
 
 
