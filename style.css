@@ -49,6 +49,21 @@
     to { background-color: #f9c800; }
 }
 
+@keyframes blueToRed {
+    from { background-color: #70c9d3; }
+    to { background-color: #ff787a; }
+}
+
+@keyframes blueToGreen {
+    from { background-color: #70c9d3; }
+    to { background-color: #40bc93; }
+}
+
+@keyframes yellowToRed {
+    from { background-color: #f9c800; }
+    to { background-color: #ff787a; }
+}
+
 *,
 *::after,
 *::before {
@@ -226,6 +241,18 @@ body {
 
 .blueToYellow {
     animation: blueToYellow 0.5s ease-in;
+}
+
+.blueToRed {
+    animation: blueToRed 0.5s ease-in;
+}
+
+.blueToGreen {
+    animation: blueToGreen 0.5s ease-in;
+}
+
+.yellowToRed {
+    animation: yellowToRed 0.5s ease-in;
 }
 
 #ship {
