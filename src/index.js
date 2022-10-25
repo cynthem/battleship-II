@@ -81,5 +81,19 @@ jQuery(function() {
                 }, 500);
             }
         });
+
+        computerPlayer.gameboard.board.forEach(cell => {
+            if (cell.shipId !== 'none') {
+                jQuery($computerBoard[cell.index]).addClass('computer-ship');
+            }
+        });
+
+        jQuery($computerBoard).each(cell => {
+            jQuery($computerBoard[cell]).css('cursor', 'pointer');
+            jQuery($computerBoard[cell]).on('click', event => {
+                jQuery(event.currentTarget).addClass('active');
+                userTurn(event);
+            });
+        });
     };
 });
