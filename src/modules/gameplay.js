@@ -33,8 +33,9 @@ export default function gameplay() {
         });
 
         $computerBoard.forEach(cell => {
-            if (!cell.hasA)
-        })
+            cell.style.cursor = 'pointer';
+            cell.on('click', userTurn);
+        });
     }
 
     return {
