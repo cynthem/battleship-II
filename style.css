@@ -180,6 +180,6 @@ body {
     display: none;
 }
 
-.hit {
+#hit {
     background-color: #f9c800;
 }
