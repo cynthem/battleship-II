@@ -164,33 +164,36 @@ body {
     border-bottom: 2px dotted white;
 }
 
-.new-game-submit {
+.new-game-submit,
+.replay-btn {
     font-family: 'Josefin Sans', sans-serif;
     font-size: 1.25rem;
     background-color: #f9c800;
-    color: #40bc93;
+    color: #ff787a;
+    border: 2px solid #ff787a;
     padding: 5px 10px;
     margin-left: 20px;
     outline: none;
-    border: 2px solid #40bc93;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.new-game-submit:hover {
-    color: #ff787a;
-    border: 2px solid #ff787a;
+.new-game-submit:hover,
+.replay-btn:hover {
+    color: #40bc93;
+    border: 2px solid #40bc93;
 }
 
-.new-game-submit:active {
+.new-game-submit:active,
+.replay-btn:active {
     transform: scale(0.9);
 }
 
 .text-bottom-container {
     display: flex;
     gap: 20px;
+    padding-top: 20px;
 }
-
 
 
 /* DISPLAY TOGGLING STYLES */
