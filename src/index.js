@@ -14,7 +14,6 @@ jQuery(function() {
             $('.player-board').removeClass('grow');
             $('.computer-board').removeClass('grow');
         }, 1001);
-        
     });
 
     $('.new-game-form').on('submit', event => {
@@ -26,7 +25,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            console.log('success')
+            gameplay.beginGame($inputName, 'computer');
         }, 1000);
     });
 });
