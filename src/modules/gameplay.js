@@ -1,7 +1,7 @@
 import Player from "../factories/Player";
 import ComputerMove from "../factories/ComputerMove";
 
-export default function gameplay() {
+const gamePlay = (() => {
     let playerName;
     let userPlayer;
     let computerPlayer;
@@ -70,4 +70,6 @@ export default function gameplay() {
         beginGame,
         userTurn
     };
-};
+})();
+
+export default gamePlay;
