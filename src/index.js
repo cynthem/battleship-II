@@ -3,7 +3,7 @@ import ComputerMove from "./factories/ComputerMove";
 import '../dist/style.css';
 import 'jquery';
 
-/*jQuery(function() {
+jQuery(function() {
     let playerName;
     let userPlayer;
     let computerPlayer;
@@ -18,18 +18,6 @@ import 'jquery';
     const $textBottom = $('.text-bottom');
     const $textResults = $("<p></p>");
     const $replayBtn = $('.replay-btn');
-
-    const textPlayerTurn = 'You fire a shot into enemy waters . . .';
-    const textComputerTurn = 'The enemy firest a shot . . .';
-    const textComputerWait = 'The enemy is taking aim . . .';
-    const textMiss = 'and it\'s a miss.';
-    const textHit = 'and it\'s a hit!';
-    const testPlayerSunk = ' You sunk their';
-    const testComputerSunk = ' They sunk your';
-    const textWinTop = `Congratuations ${playerName},`;
-    const textWinBottom = 'You\'re the winner!';
-    const textLoseTop = 'The enemy has won.';
-    const textLoseBottom = 'Better luck next time.';
 
     $(window).on('load', () => {
         $playerBoard.addClass('grow');
@@ -106,6 +94,25 @@ import 'jquery';
         });
     };
 
+    //const $playerBoard = $('.player-board').children();
+    //const $computerBoard = $('.computer-board').children();
+    //const $textTop = $('.text-top');
+    //const $textBottom = $('.text-bottom');
+    //const $textResults = $("<p></p>");
+    //const $replayBtn = $('.replay-btn');
+
+    const textPlayerTurn = 'You fire a shot into enemy waters . . .';
+    const textComputerTurn = 'The enemy firest a shot . . .';
+    const textComputerWait = 'The enemy is taking aim . . .';
+    const textMiss = 'and it\'s a miss.';
+    const textHit = 'and it\'s a hit!';
+    const testPlayerSunk = ' You sunk their';
+    const testComputerSunk = ' They sunk your';
+    const textWinTop = `Congratuations ${playerName},`;
+    const textWinBottom = 'You\'re the winner!';
+    const textLoseTop = 'The enemy has won.';
+    const textLoseBottom = 'Better luck next time.';
+
     function userTurn(hitCell) {
         setTimeout(() => {
             hitCell.removeClass('active');
@@ -146,4 +153,4 @@ import 'jquery';
 
        
     };
-});*/
+});
