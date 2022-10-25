@@ -191,6 +191,10 @@ body {
     display: none;
 }
 
+.active {
+    transform: scale(0.9);
+}
+
 #ship {
     background-color: #f9c800;
 }
