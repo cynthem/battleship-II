@@ -39,6 +39,11 @@
     to { opacity: 1; }
 }
 
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 @keyframes blueToYellow {
     from { background-color: #70c9d3; }
     to { background-color: #f9c800; }
@@ -199,6 +204,10 @@ body {
 
 .fadeIn {
     animation: fadeIn 1s ease-in;
+}
+
+.fadeOut {
+    animation: fadeOut 0.5s ease-in;
 }
 
 .hide {

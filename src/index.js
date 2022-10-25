@@ -92,7 +92,7 @@ jQuery(function() {
             jQuery($computerBoard[cell]).css('cursor', 'pointer');
             jQuery($computerBoard[cell]).on('click', event => {
                 jQuery(event.currentTarget).addClass('active');
-                userTurn(event);
+                //userTurn(event);
             });
         });
     };
