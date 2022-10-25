@@ -7,13 +7,17 @@ jQuery(function() {
     $(window).on('load', () => {
         $('.player-board').addClass('grow');
         $('.computer-board').addClass('grow');
-        $('.new-game').removeClass('hide');
-        $('.new-game').addClass('move-up');
+        
         setTimeout(() => {
-            $('.new-game').removeClass('move-up');
+            $('.new-game').removeClass('hide');
+            $('.new-game').addClass('move-up');
             $('.player-board').removeClass('grow');
             $('.computer-board').removeClass('grow');
         }, 1001);
+        
+        setTimeout(() => {
+            $('.new-game').removeClass('move-up');
+        }, 1000)
     });
 
     $('.new-game-form').on('submit', event => {
