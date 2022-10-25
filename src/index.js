@@ -14,7 +14,7 @@ jQuery(function() {
             $('.player-board').removeClass('grow');
             $('.computer-board').removeClass('grow');
         }, 1001);
-        
+
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
         }, 1000)
@@ -29,7 +29,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            //gameplay.beginGame($inputName, 'computer');
+            gameplay.beginGame($inputName, 'computer');
         }, 1000);
     });
 });
