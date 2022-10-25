@@ -25,7 +25,7 @@
 }
 
 @keyframes moveUp {
-    from { transform: translateY(90%); }
+    from { transform: translateY(99%); }
     to { transform: translateY(0%); }
 }
 
@@ -84,6 +84,11 @@ body {
     height: 360px;
     display: grid;
     grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+    transition: transform 1s;
+}
+
+.flip-around {
+    transform: rotateY(180deg);
 }
 
 .player-board > button,
