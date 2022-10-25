@@ -52,12 +52,15 @@ export default function gameplay() {
 
         $computerBoard.forEach(cell => {
             cell.style.cursor = 'pointer';
-            cell.on('click', userTurn);
+            cell.on('click', event => {
+                $(event.currentTarget).addClass('active');
+                userTurn(event);
+            });
         });
     };
 
     function userTurn(event) {
-        
+        $(event.currentTarget).removeClass('active');
         $textTop.text('');
         $textBottom.text('');
 
