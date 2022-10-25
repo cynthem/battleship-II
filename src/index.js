@@ -25,7 +25,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            gameplay.beginGame($inputName, 'computer');
+            //gameplay.beginGame($inputName, 'computer');
         }, 1000);
     });
 });

@@ -92,7 +92,7 @@ body {
 }
 
 .grow {
-    animation: grow 2s ease-in-out;
+    animation: grow 1s ease-in;
 }
 
 .player-board > button,
