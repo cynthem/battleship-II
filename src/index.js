@@ -44,14 +44,15 @@ jQuery(function() {
 
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
-        }, 1000)
+        }, 1000);
     });
 
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
         $('.player-name').text($inputName);
-        $('.player-name').removeClass('invisible');
+        //$('.player-name').removeClass('invisible');
+        $('.player-name').fadeIn(1000);
         $('.computer-name').removeClass('invisible');
         $textTop.text('Take your shot . . .');
         $('.new-game').addClass('hide');
