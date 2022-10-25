@@ -4,6 +4,6 @@ jQuery(function() {
     });
 
     $('.player-board').children().on('click', event => {
-        $(event.currentTarget).css('color', '')
+        $(event.currentTarget).css('color', '#ff787a');
     });
 });
