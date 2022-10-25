@@ -1,8 +1,8 @@
 import 'jquery';
 
-$(function() {
+jQuery(function() {
 
-    $('.player-board').children().on('click', event => {
-        $(event.currentTarget).css('backgroundColor', '#ff787a');
-    });
+    $('.player-0').on('click', () => {
+        console.log('hello')
+    })
 });
