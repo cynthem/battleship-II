@@ -141,6 +141,7 @@ jQuery(function() {
                 jQuery($textTop).text('You fire a shot into enemy waters . . .');
                 jQuery($textTop).removeClass('invisible');
                 jQuery($textTop).addClass('fadeIn');
+                hitCell.addClass('blueToYellow');
             }, 1000);
 
             setTimeout(() => {
