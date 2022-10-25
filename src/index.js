@@ -5,10 +5,12 @@ import 'jquery';
 jQuery(function() {
 
     $(window).on('load', () => {
-        $('.new-game').animate({
-            'transform': 'translateY(0%)'
-        }, 1000);
-    })
+        $('.new-game').removeClass('hide');
+        $('.new-game').addClass('move-up');
+        setTimeout(() => {
+            $('.new-game').removeClass('move-up');
+        }, 1001);
+    });
 
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
