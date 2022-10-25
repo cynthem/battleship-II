@@ -95,14 +95,34 @@ jQuery(function() {
             if (cell.shipId !== 'none') {
                 jQuery($computerBoard[cell.index]).addClass('computer-ship');
             }
-        });
 
-        jQuery($computerBoard).each(cell => {
-            jQuery($computerBoard[cell]).css('cursor', 'pointer');
-            jQuery($computerBoard[cell]).on('click', event => {
-                jQuery(event.currentTarget).addClass('active');
-                //userTurn(event);
+            jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
+
+            jQuery($computerBoard[cell.index]).on('click', event => {
+                const hitCell = jQuery(event.currentTarget);
+                hitCell.addClass('active');
+                userTurn(hitCell);
             });
         });
+    };
+
+    function userTurn(hitCell) {
+        setTimeout(() => {
+            hitCell.removeClass('active');
+        }, 100);
+        
+        jQuery($textTop).addClass('fadeOut');
+        jQuery($textBottom).addClass('fadeOut');
+
+        setTimeout(() => {
+            jQuery($textTop).removeClass('fadeOut');
+            jQuery($textBottom).removeClass('fadeOut');
+            jQuery($textTop).addClass('invisible');
+            jQuery($textBottom).addClass('invisible');
+            jQuery($textTop).text('');
+            jQuery($textBottom).text('');
+        }, 500);
+
+        //$textBottom.text('');
     };
 });
