@@ -30,7 +30,7 @@
 }
 
 @keyframes grow {
-    from { transform: scale(0.1); }
+    from { transform: scale(0); }
     to { transform: scale(1); }
 }
 
@@ -92,7 +92,7 @@ body {
 }
 
 .grow {
-    animation: grow 1s;
+    animation: grow 2s ease-in-out;
 }
 
 .player-board > button,
