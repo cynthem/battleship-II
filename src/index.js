@@ -1,18 +1,45 @@
-import gamePlay from './modules/gameplay';
+import Player from "./factories/Player";
+import ComputerMove from "./factories/ComputerMove";
 import '../dist/style.css';
 import 'jquery';
 
 jQuery(function() {
+    let playerName;
+    let userPlayer;
+    let computerPlayer;
+    let computerMoves;
+    let nextComputerMove;
+    let playerStatus;
+    let computerStatus;
+
+    const $playerBoard = $('.player-board').children();
+    const $computerBoard = $('.computer-board').children();
+    const $textTop = $('.text-top');
+    const $textBottom = $('.text-bottom');
+    const $textResults = $("<p></p>");
+    const $replayBtn = $('.replay-btn');
+
+    const textPlayerTurn = 'You fire a shot into enemy waters . . .';
+    const textComputerTurn = 'The enemy firest a shot . . .';
+    const textComputerWait = 'The enemy is taking aim . . .';
+    const textMiss = 'and it\'s a miss.';
+    const textHit = 'and it\'s a hit!';
+    const testPlayerSunk = ' You sunk their';
+    const testComputerSunk = ' They sunk your';
+    const textWinTop = `Congratuations ${playerName},`;
+    const textWinBottom = 'You\'re the winner!';
+    const textLoseTop = 'The enemy has won.';
+    const textLoseBottom = 'Better luck next time.';
 
     $(window).on('load', () => {
-        $('.player-board').addClass('grow');
-        $('.computer-board').addClass('grow');
+        $playerBoard.addClass('grow');
+        $computerBoard.addClass('grow');
         
         setTimeout(() => {
             $('.new-game').removeClass('hide');
             $('.new-game').addClass('move-up');
-            $('.player-board').removeClass('grow');
-            $('.computer-board').removeClass('grow');
+            $playerBoard.removeClass('grow');
+            $computerBoard.removeClass('grow');
         }, 1001);
 
         setTimeout(() => {
@@ -26,10 +53,27 @@ jQuery(function() {
         $('.player-name').text($inputName);
         $('.player-name').removeClass('invisible');
         $('.computer-name').removeClass('invisible');
+        $textTop.text('Take your shot . . .');
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            gamePlay.beginGame($inputName, 'computer');
+            beginGame($inputName, 'computer');
         }, 1000);
     });
+
+    function beginGame(userName, computerName) {
+        playerName = userName;
+        userPlayer = new Player(userName);
+        computerPlayer = new Player(computerName);
+        computerMoves = new ComputerMove();
+
+        nextComputerMove = Math.floor(Math.random() * 100);
+        playerStatus = userPlayer.takeHit(nextComputerMove);
+
+        userPlayer.gameboard.board.forEach(cell => {
+            if (cell.shipId !== 'none') {
+                jQuery($playerBoard[cell.index]).attr('id', 'ship');
+            }
+        });
+    };
 });
