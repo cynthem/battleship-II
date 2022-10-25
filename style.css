@@ -199,6 +199,14 @@ body {
     display: none;
 }
 
-#hit {
+#ship {
     background-color: #f9c800;
+}
+
+#sunk {
+    background-color: #ff787a;
+}
+
+#no-hit {
+    background-color: #40bc93;
 }
