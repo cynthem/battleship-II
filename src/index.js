@@ -1,4 +1,4 @@
-import gameplay from './modules/gameplay';
+import gamePlay from './modules/gameplay';
 import '../dist/style.css';
 import 'jquery';
 
@@ -29,7 +29,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            gameplay.beginGame($inputName, 'computer');
+            gamePlay.beginGame($inputName, 'computer');
         }, 1000);
     });
 });
