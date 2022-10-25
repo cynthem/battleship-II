@@ -4,6 +4,12 @@ import 'jquery';
 
 jQuery(function() {
 
+    $(window).on('load', () => {
+        $('.new-game').animate({
+            'transform': 'translateY(0%)'
+        }, 1000);
+    })
+
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
