@@ -51,9 +51,10 @@ jQuery(function() {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
         $('.player-name').text($inputName);
-        //$('.player-name').removeClass('invisible');
-        $('.player-name').fadeIn(1000);
+        $('.player-name').removeClass('invisible');
+        $('.player-name').addClass('fadeIn');
         $('.computer-name').removeClass('invisible');
+        $('.computer-name').addClass('fadeIn');
         $textTop.text('Take your shot . . .');
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
