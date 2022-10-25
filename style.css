@@ -107,7 +107,7 @@ body {
 }
 
 .grow {
-    animation: grow 1s ease-in;
+    animation: grow 0.75s ease-in;
 }
 
 .player-board > button,
@@ -144,7 +144,7 @@ body {
 }
 
 .move-up {
-    animation: moveUp 1s ease-in;
+    animation: moveUp 0.5s ease-in;
 }
 
 .new-game-form {
