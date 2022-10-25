@@ -56,12 +56,21 @@ jQuery(function() {
         $('.computer-name').removeClass('invisible');
         $('.computer-name').addClass('fadeIn');
         $textTop.text('Take your shot . . .');
-        $('.new-game').addClass('hide');
-        $('.gameplay-text').removeClass('hide');
+        $('.new-game-form').addClass('fadeOut');
+
         setTimeout(() => {
-            $textTop.fadeIn(1500);
+            $('.new-game-form').removeClass('fadeOut');
+            $('.new-game').addClass('hide');
+            $('.gameplay-text').removeClass('hide');
+        }, 500);
+        
+        setTimeout(() => {
             beginGame($inputName, 'computer');
         }, 1000);
+
+        setTimeout(() => {
+            $textTop.fadeIn(1000);
+        }, 2000);
     });
 
     function beginGame(userName, computerName) {
