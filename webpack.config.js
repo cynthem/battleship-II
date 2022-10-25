@@ -3,6 +3,11 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
+  resolve: {
+    alias: {
+      jquery: 'jquery/src/jquery'
+    }
+  },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
