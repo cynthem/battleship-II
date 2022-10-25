@@ -39,6 +39,11 @@
     to { opacity: 1; }
 }
 
+@keyframes blueToYellow {
+    from { background-color: #70c9d3; }
+    to { background-color: #f9c800; }
+}
+
 *,
 *::after,
 *::before {
@@ -202,6 +207,10 @@ body {
 
 .active {
     transform: scale(0.9);
+}
+
+.blueToYellow {
+    animation: blueToYellow 0.5s ease-in;
 }
 
 #ship {
