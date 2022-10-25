@@ -34,6 +34,11 @@
     to { transform: scale(1); }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 *,
 *::after,
 *::before {
@@ -184,7 +189,11 @@ body {
 /* DISPLAY TOGGLING STYLES */
 
 .invisible {
-    color: transparent;
+    opacity: 0;
+}
+
+.fadeIn {
+    animation: fadeIn 1s ease-in;
 }
 
 .hide {
