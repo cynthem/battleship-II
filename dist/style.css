@@ -179,3 +179,7 @@ body {
 .hide {
     display: none;
 }
+
+.hit {
+    background-color: #f9c800;
+}
