@@ -132,12 +132,12 @@ jQuery(function() {
                 jQuery($textTop).text('You fire a shot into enemy waters . . .');
                 jQuery($textTop).removeClass('invisible');
                 jQuery($textTop).addClass('fadeIn');
-                hitCell.addClass('blueToYellow');
+                hitCell.addClass('blueToGreen');
             }, 500);
 
             setTimeout(() => {
-                hitCell.attr('id', 'ship');
-                hitCell.removeClass('blueToYellow');
+                hitCell.attr('id', 'no-hit');
+                hitCell.removeClass('blueToGreen');
             }, 1000);
 
             setTimeout(() => {
