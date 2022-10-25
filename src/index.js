@@ -5,11 +5,16 @@ import 'jquery';
 jQuery(function() {
 
     $(window).on('load', () => {
+        $('.player-board').addClass('flip-around');
+        $('.computer-board').addClass('flip-around');
         $('.new-game').removeClass('hide');
         $('.new-game').addClass('move-up');
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
+            $('.player-board').removeClass('flip-around');
+            $('.computer-board').removeClass('flip-around');
         }, 1001);
+        
     });
 
     $('.new-game-form').on('submit', event => {
