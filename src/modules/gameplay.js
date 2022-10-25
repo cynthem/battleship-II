@@ -11,8 +11,8 @@ const gamePlay = (() => {
     let playerStatus;
     let computerStatus;
 
-    const $playerBoard = $('.player-board > button');
-    const $computerBoard = $('.computer-board > button');
+    const $playerBoard = $('.player-board').children();
+    const $computerBoard = $('.computer-board').children();
     const $textTop = $('.text-top');
     const $textBottom = $('.text-bottom');
     const $textResults = $("<p></p>");
@@ -41,20 +41,20 @@ const gamePlay = (() => {
 
         userPlayer.gameboard.board.forEach(cell => {
             if (cell.shipId !== 'none') {
-                $playerBoard[cell.index].attr('id', 'ship');
+                jQuery($playerBoard[cell.index]).attr('id', 'ship');
             }
         });
 
         computerPlayer.gameboard.board.forEach(cell => {
             if (cell.shipId !== 'none') {
-                $computerBoard[cell.index].addClass('computer-ship');
+                jQuery($computerBoard[cell.index]).addClass('computer-ship');
             }
         });
 
         $computerBoard.forEach(cell => {
             cell.style.cursor = 'pointer';
             cell.on('click', event => {
-                $(event.currentTarget).addClass('active');
+                jQuery($(event.currentTarget)).addClass('active');
                 userTurn(event);
             });
         });
