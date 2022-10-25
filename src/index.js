@@ -5,14 +5,14 @@ import 'jquery';
 jQuery(function() {
 
     $(window).on('load', () => {
-        $('.player-board').addClass('flip-around');
-        $('.computer-board').addClass('flip-around');
+        $('.player-board').addClass('grow');
+        $('.computer-board').addClass('grow');
         $('.new-game').removeClass('hide');
         $('.new-game').addClass('move-up');
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
-            $('.player-board').removeClass('flip-around');
-            $('.computer-board').removeClass('flip-around');
+            $('.player-board').removeClass('grow');
+            $('.computer-board').removeClass('grow');
         }, 1001);
         
     });
