@@ -128,7 +128,7 @@ jQuery(function() {
             jQuery($textBottom).addClass('invisible');
             jQuery($textTop).text('');
             jQuery($textBottom).text('');
-        }, 500);
+        }, 200);
 
         const hitCellClass = hitCell.attr('class');
         const stringIndex = hitCellClass.slice(9, 11);
@@ -142,13 +142,18 @@ jQuery(function() {
                 jQuery($textTop).removeClass('invisible');
                 jQuery($textTop).addClass('fadeIn');
                 hitCell.addClass('blueToYellow');
+            }, 500);
+
+            setTimeout(() => {
+                hitCell.attr('id', 'ship');
+                hitCell.removeClass('blueToYellow');
             }, 1000);
 
             setTimeout(() => {
                 jQuery($textBottom).text('and it\'s a miss.');
                 jQuery($textBottom).removeClass('invisible');
                 jQuery($textBottom).addClass('fadeIn');
-            }, 2000);
+            }, 1500);
             
         }
 
