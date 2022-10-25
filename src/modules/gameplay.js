@@ -1,5 +1,6 @@
 import Player from "../factories/Player";
 import ComputerMove from "../factories/ComputerMove";
+import 'jquery';
 
 const gamePlay = (() => {
     let playerName;
