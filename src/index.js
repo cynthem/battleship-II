@@ -59,7 +59,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
-            $textTop.fadeIn(1000);
+            $textTop.fadeIn(1500);
             beginGame($inputName, 'computer');
         }, 1000);
     });
@@ -75,7 +75,10 @@ jQuery(function() {
 
         userPlayer.gameboard.board.forEach(cell => {
             if (cell.shipId !== 'none') {
-                jQuery($playerBoard[cell.index]).attr('id', 'ship');
+                jQuery($playerBoard[cell.index]).addClass('blueToYellow');
+                setTimeout(() => {
+                    jQuery($playerBoard[cell.index]).attr('id', 'ship');
+                }, 500);
             }
         });
     };
