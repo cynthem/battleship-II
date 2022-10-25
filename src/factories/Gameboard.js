@@ -58,4 +58,96 @@ export default class Gameboard {
             location.forEach(cell => this.board[cell].shipId = 'destroyer');
         }
     }
+
+    receiveAttack(index) {
+        let status = this.board[index];
+
+        if (status.shipId === 'none') {
+            return status;
+        }
+
+        if (status.shipId === 'carrier') {
+            this.carrier.isHit();
+            if (!this.carrier.isSunk()) {
+                return status;
+            } else {
+                this.sunk++;
+                status.isSunk = true;
+                if (!this.allSunk()) {
+                    return status;
+                } else {
+                    status.allSunk = true;
+                    return status;
+                }
+            }
+        }
+
+        if (status.shipId === 'battleship') {
+            this.battleship.isHit();
+            if (!this.battleship.isSunk()) {
+                return status;
+            } else {
+                this.sunk++;
+                status.isSunk = true;
+                if (!this.allSunk()) {
+                    return status;
+                } else {
+                    status.allSunk = true;
+                    return status;
+                }
+            }
+        }
+
+        if (status.shipId === 'cruiser') {
+            this.cruiser.isHit();
+            if (!this.cruiser.isSunk()) {
+                return status;
+            } else {
+                this.sunk++;
+                status.isSunk = true;
+                if (!this.allSunk()) {
+                    return status;
+                } else {
+                    status.allSunk = true;
+                    return status;
+                }
+            }
+        }
+
+        if (status.shipId === 'submarine') {
+            this.submarine.isHit();
+            if (!this.submarine.isSunk()) {
+                return status;
+            } else {
+                this.sunk++;
+                status.isSunk = true;
+                if (!this.allSunk()) {
+                    return status;
+                } else {
+                    status.allSunk = true;
+                    return status;
+                }
+            }
+        }
+
+        if (status.shipId === 'destroyer') {
+            this.destroyer.isHit();
+            if (!this.destroyer.isSunk()) {
+                return status;
+            } else {
+                this.sunk++;
+                status.isSunk = true;
+                if (!this.allSunk()) {
+                    return status;
+                } else {
+                    status.allSunk = true;
+                    return status;
+                }
+            }
+        }
+    }
+
+    allSunk() {
+        return this.sunk === 5;
+    }
 }
