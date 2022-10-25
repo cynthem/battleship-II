@@ -3,7 +3,7 @@ import ComputerMove from "./factories/ComputerMove";
 import '../dist/style.css';
 import 'jquery';
 
-jQuery(function() {
+/*jQuery(function() {
     let playerName;
     let userPlayer;
     let computerPlayer;
@@ -123,6 +123,27 @@ jQuery(function() {
             jQuery($textBottom).text('');
         }, 500);
 
-        //$textBottom.text('');
+        const hitCellClass = hitCell.attr('class');
+        const stringIndex = hitCellClass.slice(9, 11);
+        const hitIndex = Number(stringIndex);
+        
+        computerStatus = computerPlayer.takeHit(hitIndex);
+
+        if (computerStatus.shipId === 'none') {
+            setTimeout(() => {
+                jQuery($textTop).text('You fire a shot into enemy waters . . .');
+                jQuery($textTop).removeClass('invisible');
+                jQuery($textTop).addClass('fadeIn');
+            }, 1000);
+
+            setTimeout(() => {
+                jQuery($textBottom).text('and it\'s a miss.');
+                jQuery($textBottom).removeClass('invisible');
+                jQuery($textBottom).addClass('fadeIn');
+            }, 2000);
+            
+        }
+
+       
     };
-});
+});*/

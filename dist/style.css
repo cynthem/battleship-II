@@ -137,7 +137,7 @@ body {
     border-top-right-radius: 160px;
     color: white;
     font-size: 1.5rem;
-    padding-top: 20px;
+    padding-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -150,7 +150,7 @@ body {
 .new-game-form {
     display: flex;
     align-items: center;
-    padding-top: 30px;
+    padding-top: 25px;
 }
 
 .new-game-input {
@@ -171,7 +171,7 @@ body {
     background-color: #f9c800;
     color: #ff787a;
     border: 2px solid #ff787a;
-    padding: 5px 10px;
+    padding: 8px 12px 4px;
     margin-left: 20px;
     outline: none;
     border-radius: 5px;
@@ -191,8 +191,14 @@ body {
 
 .text-bottom-container {
     display: flex;
+    align-items: flex-end;
     gap: 20px;
-    padding-top: 20px;
+    padding-top: 30px;
+}
+
+.text-top,
+.text-bottom {
+    font-size: 1.75rem;
 }
 
 
