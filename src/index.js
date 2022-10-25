@@ -57,6 +57,7 @@ jQuery(function() {
         $('.new-game').addClass('hide');
         $('.gameplay-text').removeClass('hide');
         setTimeout(() => {
+            $textTop.fadeIn(1000);
             beginGame($inputName, 'computer');
         }, 1000);
     });
