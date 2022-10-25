@@ -16,7 +16,7 @@ jQuery(function() {
     const $computerBoard = $('.computer-board').children();
     const $textTop = $('.text-top');
     const $textBottom = $('.text-bottom');
-    const $textResults = $("<p></p>");
+    const $textBottomRight = $('<p></p>');
     const $replayBtn = $('.replay-btn');
 
     $(window).on('load', () => {
@@ -94,16 +94,6 @@ jQuery(function() {
         });
     };
 
-  
-    //const $textResults = $("<p></p>");
-    //const $replayBtn = $('.replay-btn');
-    const textPlayerTurn = 'You fire a shot into enemy waters . . .';
-    const textMiss = 'and it\'s a miss.';
-    const textHit = 'and it\'s a hit!';
-    const testPlayerSunk = ' You sunk their';
-    const textWinTop = `Congratuations ${playerName},`;
-    const textWinBottom = 'You\'re the winner!';
-
     function userTurn(hitCell) {
         setTimeout(() => {
             hitCell.removeClass('active');
@@ -127,9 +117,10 @@ jQuery(function() {
         
         computerStatus = computerPlayer.takeHit(hitIndex);
 
+        jQuery($textTop).text('You fire a shot into enemy waters . . .');
+
         if (computerStatus.shipId === 'none') {
             setTimeout(() => {
-                jQuery($textTop).text('You fire a shot into enemy waters . . .');
                 jQuery($textTop).removeClass('invisible');
                 jQuery($textTop).addClass('fadeIn');
                 hitCell.addClass('blueToGreen');
@@ -148,17 +139,63 @@ jQuery(function() {
             }, 1500);
             
         } else {
+            jQuery($textBottom).text('and it\'s a hit!');
+
             if (!computerStatus.isSunk) {
                 setTimeout(() => {
-                    jQuery($textTop).text('You fire a shot into enemy waters . . .');
                     jQuery($textTop).removeClass('invisible');
                     jQuery($textTop).addClass('fadeIn');
                     hitCell.addClass('blueToYellow');
                 }, 500);
+
+                setTimeout(() => {
+                    hitCell.attr('id', 'ship');
+                    hitCell.removeClass('blueToYellow');
+                }, 1000);
+    
+                setTimeout(() => {
+                    jQuery($textBottom).removeClass('invisible');
+                    jQuery($textBottom).addClass('fadeIn');
+                    computerTurn();
+                }, 1500);
+
+            } else {
+                const shipName = computerStatus.shipId;
+                jQuery($textBottomRight).text('');
+                const sunkText = jQuery($textBottomRight).text(`You sunk their ${shipName}.`);
+                sunkText.addClass('invisible');
+                jQuery($textBottom).append(sunkText);
+
+                if (!computerStatus.allSunk) {
+                    setTimeout(() => {
+                        jQuery($textTop).removeClass('invisible');
+                        jQuery($textTop).addClass('fadeIn');
+                        hitCell.addClass('blueToYellow');
+                    }, 500);
+
+                    setTimeout(() => {
+                        hitCell.attr('id', 'ship');
+                        hitCell.removeClass('blueToYellow');
+                    }, 1000);
+        
+                    setTimeout(() => {
+                        jQuery($textBottom).removeClass('invisible');
+                        jQuery($textBottom).addClass('fadeIn');
+                        markSunkShip(shipName, 'computer');
+                    }, 1500);
+
+                    setTimeout(() => {
+                        sunkText.removeClass('invisible');
+                        sunkText.addClass('fadeIn');
+                        computerTurn();
+                    }, 2000);
+                }
             }
         }
     };
 
+    const textWinTop = `Congratuations ${playerName},`;
+    const textWinBottom = 'You\'re the winner!';
     const textComputerTurn = 'The enemy fires a shot . . .';
     const textComputerWait = 'The enemy is taking aim . . .';
     //const textMiss = 'and it\'s a miss.';
@@ -168,4 +205,18 @@ jQuery(function() {
     const textLoseBottom = 'Better luck next time.';
 
     function computerTurn() {};
+
+    function markSunkShip(shipName) {
+        computerPlayer.gameboard.board.forEach(cell => {
+            if (cell.shipId === shipName) {
+                jQuery($computerBoard[cell.index]).removeAttr('id');
+                jQuery($computerBoard[cell.index]).addClass('yellowToRed');
+
+                setTimeout(() => {
+                    jQuery($computerBoard[cell.index]).attr('id', 'sunk');
+                    jQuery($computerBoard[cell.index]).removeClass('yellowToRed');
+                }, 500);
+            }
+        });
+    };
 });
