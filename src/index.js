@@ -1,8 +1,9 @@
+import '../dist/style.css';
 import 'jquery';
 
 jQuery(function() {
 
     $('.player-0').on('click', () => {
-        console.log('hello')
+        $('.player-0').addClass('hit')
     })
 });
