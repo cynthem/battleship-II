@@ -7,6 +7,13 @@ jQuery(function() {
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
-        console.log($inputName)
+        $('.player-name').text($inputName);
+        $('.player-name').removeClass('invisible');
+        $('.computer-name').removeClass('invisible');
+        $('.new-game').addClass('hide');
+        $('.gameplay-text').removeClass('hide');
+        setTimeout(() => {
+            console.log('success')
+        }, 1000);
     });
 });

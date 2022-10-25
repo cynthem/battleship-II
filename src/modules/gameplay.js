@@ -1,3 +1,1 @@
-export default gameplay = (() => {
-
-})();
+export default function gameplay() {};
