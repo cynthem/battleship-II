@@ -28,11 +28,11 @@ jQuery(function() {
             $('.new-game').addClass('move-up');
             $playerBoard.removeClass('grow');
             $computerBoard.removeClass('grow');
-        }, 1001);
+        }, 1000);
 
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
-        }, 1000);
+        }, 2000);
     });
 
     $('.new-game-form').on('submit', event => {
