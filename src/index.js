@@ -38,28 +38,27 @@ jQuery(function() {
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
-        $('.player-name').text('');
-        $('.player-name').text($inputName);
-        $('.player-name').removeClass('invisible');
-        $('.player-name').addClass('fadeIn');
-        $('.computer-name').removeClass('invisible');
-        $('.computer-name').addClass('fadeIn');
-        $textTop.text('Take your shot . . .');
+
         $('.new-game-form').addClass('fadeOut');
+        $('.new-game-msg').addClass('fadeOut');
+        $('.player-name').text($inputName);
 
         setTimeout(() => {
+            $('.player-name').removeClass('invisible');
+            $('.computer-name').removeClass('invisible');
+            $('.player-name').addClass('fadeIn');
+            $('.computer-name').addClass('fadeIn');
             $('.new-game').addClass('hide');
-            $('.new-game-form').removeClass('fadeOut');
             $('.gameplay-text').removeClass('hide');
         }, 500);
         
         setTimeout(() => {
             beginGame($inputName, 'computer');
-        }, 1000);
+        }, 2000);
 
         setTimeout(() => {
             $textTop.fadeIn(1000);
-        }, 2000);
+        }, 3000);
     });
 
     function beginGame(userName, computerName) {
@@ -76,6 +75,7 @@ jQuery(function() {
                 jQuery($playerBoard[cell.index]).addClass('blueToYellow');
                 setTimeout(() => {
                     jQuery($playerBoard[cell.index]).attr('id', 'ship');
+                    jQuery($playerBoard[cell.index]).removeClass('blueToYellow');
                 }, 500);
             }
         });
@@ -107,8 +107,6 @@ jQuery(function() {
             jQuery($textBottom).removeClass('fadeOut');
             jQuery($textTop).addClass('invisible');
             jQuery($textBottom).addClass('invisible');
-            jQuery($textTop).text('');
-            jQuery($textBottom).text('');
         }, 600);
 
         const hitCellClass = hitCell.attr('class');
@@ -134,8 +132,11 @@ jQuery(function() {
                 jQuery($textBottom).text('and it\'s a miss.');
                 jQuery($textBottom).removeClass('invisible');
                 jQuery($textBottom).addClass('fadeIn');
-                computerTurn();
             }, 2000);
+
+            setTimeout(() => {
+                computerTurn();
+            }, 2500)
             
         } else {
             if (!computerStatus.isSunk) {
