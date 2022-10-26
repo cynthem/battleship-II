@@ -32,7 +32,7 @@ jQuery(function() {
 
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
-        }, 2000);
+        }, 2000); 
     });
 
     $('.new-game-form').on('submit', event => {

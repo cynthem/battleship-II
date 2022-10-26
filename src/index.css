@@ -126,10 +126,6 @@ body {
     grid-template: repeat(10, 1fr) / repeat(10, 1fr);
 }
 
-.grow {
-    animation: grow 0.75s ease-in;
-}
-
 .player-board > button,
 .computer-board > button {
     height: 35px;
@@ -161,10 +157,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.move-up {
-    animation: moveUp 0.5s ease-in;
 }
 
 .new-game-form {
@@ -222,7 +214,7 @@ body {
 }
 
 
-/* DISPLAY TOGGLING STYLES */
+/* ANIMATIONS & DISPLAY STYLES */
 
 .invisible {
     opacity: 0;
@@ -234,6 +226,14 @@ body {
 
 .active {
     transform: scale(0.9);
+}
+
+.grow {
+    animation: grow 0.75s ease-in;
+}
+
+.move-up {
+    animation: moveUp 0.5s ease-in;
 }
 
 .fadeIn {
