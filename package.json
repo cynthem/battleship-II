@@ -23,6 +23,7 @@
   "homepage": "https://github.com/doozles411/battleship-II#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.19.4",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.1",
     "css-minimizer-webpack-plugin": "^4.2.2",
     "html-webpack-plugin": "^5.5.0",
