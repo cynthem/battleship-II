@@ -151,7 +151,7 @@ jQuery(function() {
                 }, 1200);
     
                 setTimeout(() => {
-                    jQuery($textBottom).text('and it\'s a hit!');
+                    jQuery($textBottom).text('and it\'s a hit! ');
                     jQuery($textBottom).removeClass('invisible');
                     jQuery($textBottom).addClass('fadeIn');
                     computerTurn();
@@ -160,7 +160,7 @@ jQuery(function() {
             } else {
                 const shipName = computerStatus.shipId;
                 jQuery($textBottomRight).text('');
-                const sunkText = jQuery($textBottomRight).text(`You sunk their ${shipName}.`);
+                const sunkText = jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
                 sunkText.addClass('invisible');
 
                 if (!computerStatus.allSunk) {
