@@ -254,7 +254,7 @@ body {
 }
 
 .slowFadeOut {
-    animation: slowFadeOut 2.5s;
+    animation: slowFadeOut 2s;
 }
 
 .blueToYellow {

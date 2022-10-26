@@ -37,7 +37,8 @@ jQuery(function() {
 
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
-        const $inputName = $('.new-game-input').val();
+        resetGame();
+        /*const $inputName = $('.new-game-input').val();
 
         $('.new-game-form').addClass('fadeOut');
         $('.new-game-msg').addClass('fadeOut');
@@ -58,7 +59,7 @@ jQuery(function() {
 
         setTimeout(() => {
             $textTop.fadeIn(1000);
-        }, 3000);
+        }, 3000);*/
     });
 
     function beginGame(userName, computerName) {
