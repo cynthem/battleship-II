@@ -265,8 +265,6 @@ jQuery(function() {
         }
     };
 
-    const textComputerTurn = 'The enemy fires a shot . . .';
-    const textComputerWait = 'The enemy is taking aim . . .';
     //const textMiss = 'and it\'s a miss.';
     //const textHit = 'and it\'s a hit!';
     const testComputerSunk = ' They sunk your';
@@ -304,7 +302,51 @@ jQuery(function() {
             jQuery($textTop).addClass('fadeIn');
         }, 2600);
 
+        setTimeout(() => {
+            jQuery($textTop).removeClass('fadeIn');
+            jQuery($textTop).addClass('fadeOut');
+        }, 3900);
+
+        setTimeout(() => {
+            jQuery($textTop).addClass('invisible');
+            jQuery($textTop).removeClass('fadeOut');
+            jQuery($textTop).text('');
+            jQuery($textTop).text('The enemy fires a shot . . .');
+        }, 4400);
+
+        if (playerStatus.shipId === 'none') {
+            setTimeout(() => {
+                jQuery($textTop).removeClass('invisible');
+                jQuery($textTop).addClass('fadeIn');
+                jQuery($playerBoard[nextComputerMove]).addClass('blueToGreen');
+            }, 4500);
+            
+            setTimeout(() => {
+                jQuery($playerBoard[nextComputerMove]).attr('id', 'no-hit');
+                jQuery($playerBoard[nextComputerMove]).removeClass('blueToGreen');
+            }, 5000);
+            
+            setTimeout(() => {
+                jQuery($textBottom).text('and it\'s a miss.');
+                jQuery($textBottom).removeClass('invisible');
+                jQuery($textBottom).addClass('fadeIn');
+
+                nextComputerMove = computerMoves.determineMove(playerStatus);
+                playerStatus = userPlayer.takeHit(nextComputerMove);
+
+                computerPlayer.gameboard.board.forEach(cell => {
+                    if (!jQuery($computerBoard[cell.index]).attr('id')) {
+                        jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
         
+                        jQuery($computerBoard[cell.index]).on('click', event => {
+                            const hitCell = jQuery(event.currentTarget);
+                            hitCell.addClass('active');
+                            userTurn(hitCell);
+                        });
+                    }
+                });
+            }, 5800);
+        }
     };
 
     function markSunkShip(shipName) {
