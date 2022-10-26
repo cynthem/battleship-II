@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -12,8 +13,18 @@ module.exports = {
       title: 'Battleship',
       template: path.join(__dirname, './src/custom.html')
     }),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'bundle.css'
+    }),
     new CssMinimizerPlugin(),
+    new CopyPlugin({
+      patterns: [
+          {
+              from: './src/assets',
+              to: './assets'
+          }
+      ]
+    }),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
@@ -21,10 +32,6 @@ module.exports = {
   ],
   module: {
     rules: [
-      /*{
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },*/
       {
         test: /.s?css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -32,7 +39,15 @@ module.exports = {
       {
         test: /\.html$/,
         loader: 'html-loader'
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
       }
+      /*{
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      },*/
       /*{
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -51,7 +66,8 @@ module.exports = {
     }
   },
   output: {
-    filename: 'main.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    assetModuleFilename: 'assets/[hash][ext][query]'
   },
 };
