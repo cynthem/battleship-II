@@ -105,6 +105,10 @@ jQuery(function() {
             jQuery($textTop).addClass('fadeOut');
             jQuery($textBottom).addClass('fadeOut');
             jQuery($textBottomRight).addClass('fadeOut');
+            computerPlayer.gameboard.board.forEach(cell => {
+                jQuery($computerBoard[cell.index]).css('cursor', 'default');
+                jQuery($computerBoard[cell.index]).off();
+            });
         }, 100);
         
         setTimeout(() => {
@@ -114,12 +118,13 @@ jQuery(function() {
         }, 600);
 
         setTimeout(() => {
-            jQuery($textTop).text('You fire a shot into enemy waters . . .');
             jQuery($textTop).removeClass('fadeOut');
             jQuery($textBottom).removeClass('fadeOut');
+            jQuery($textBottomRight).removeClass('fadeOut');
         }, 700);
 
         setTimeout(() => {
+            jQuery($textTop).text('You fire a shot into enemy waters . . .');
             jQuery($textTop).removeClass('invisible');
             jQuery($textTop).addClass('fadeIn');
         }, 800);
@@ -138,10 +143,10 @@ jQuery(function() {
             setTimeout(() => {
                 hitCell.attr('id', 'no-hit');
                 hitCell.removeClass('blueToGreen');
-                jQuery($textBottom).text('and it\'s a miss.');
             }, 2000);
 
             setTimeout(() => {
+                jQuery($textBottom).text('and it\'s a miss.');
                 jQuery($textBottom).removeClass('invisible');
                 jQuery($textBottom).addClass('fadeIn');
             }, 2200);
@@ -151,7 +156,6 @@ jQuery(function() {
             }, 3200);
             
         } else {
-            jQuery($textBottom).text('and it\'s a hit!');
             if (!computerStatus.isSunk) {
                 setTimeout(() => {
                     hitCell.addClass('blueToYellow');
@@ -160,10 +164,10 @@ jQuery(function() {
                 setTimeout(() => {
                     hitCell.attr('id', 'ship');
                     hitCell.removeClass('blueToYellow');
-                    //jQuery($textBottom).text('and it\'s a hit!');
                 }, 2000);
     
                 setTimeout(() => {
+                    jQuery($textBottom).text('and it\'s a hit!');
                     jQuery($textBottom).removeClass('invisible');
                     jQuery($textBottom).addClass('fadeIn');
                 }, 2200);
@@ -174,9 +178,8 @@ jQuery(function() {
 
             } else {
                 const shipName = computerStatus.shipId;
-                //jQuery($textBottomRight).text('');
                 jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-                //sunkText.addClass('invisible');
+                //jQuery($textBottomRight).addClass('invisible');
 
                 if (!computerStatus.allSunk) {
                     setTimeout(() => {
@@ -186,12 +189,11 @@ jQuery(function() {
                     setTimeout(() => {
                         hitCell.attr('id', 'ship');
                         hitCell.removeClass('blueToYellow');
-                        //jQuery($textBottom).text('and it\'s a hit!');
-                        //jQuery($textBottom).append(sunkText);
-                        jQuery($textBottom).append(jQuery($textBottomRight));
                     }, 2000);
         
                     setTimeout(() => {
+                        jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                     }, 2200);
@@ -203,13 +205,17 @@ jQuery(function() {
                     setTimeout(() => {
                         jQuery($textBottomRight).removeClass('invisible');
                         jQuery($textBottomRight).addClass('fadeIn');
-                    }, 3000);
+                    }, 3200);
 
                     setTimeout(() => {
                         computerTurn();
-                    }, 4000);
+                    }, 4200);
 
                 } else {
+                    const shipName = computerStatus.shipId;
+                    jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
+                    //jQuery($textBottomRight).addClass('invisible');
+
                     setTimeout(() => {
                         hitCell.addClass('blueToYellow');
                     }, 1500);
@@ -217,12 +223,11 @@ jQuery(function() {
                     setTimeout(() => {
                         hitCell.attr('id', 'ship');
                         hitCell.removeClass('blueToYellow');
-                        //jQuery($textBottom).text('and it\'s a hit!');
-                        //jQuery($textBottom).append(sunkText);
-                        jQuery($textBottom).append(jQuery($textBottomRight));
                     }, 2000);
         
                     setTimeout(() => {
+                        jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                     }, 2200);
@@ -232,9 +237,9 @@ jQuery(function() {
                     }, 2500);
 
                     setTimeout(() => {
-                        sunkText.removeClass('invisible');
-                        sunkText.addClass('fadeIn');
-                    }, 3000);
+                        jQuery($textBottomRight).removeClass('invisible');
+                        jQuery($textBottomRight).addClass('fadeIn');
+                    }, 3200);
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('fadeOut');
@@ -243,21 +248,17 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('invisible');
-                        //jQuery($textBottom).addClass('invisible');
                         jQuery($textBottom).addClass('hide');
                         jQuery($textTop).removeClass('fadeOut');
-                        jQuery($textBottom).removeClass('fadeOut');
                     }, 5500);
 
                     setTimeout(() => {
-                        //jQuery($textBottomRight).text('');
-                        //jQuery($textBottom).text('');
-                        jQuery($textTop).text(`Congratulations ${playerName}, you win!`);
                         jQuery($replayBtn).addClass('invisible');
                         jQuery($replayBtn).removeClass('hide');
                     }, 5600);
 
                     setTimeout(() => {
+                        jQuery($textTop).text(`Congratulations ${playerName}, you win!`);
                         jQuery($textTop).removeClass('invisible');
                         jQuery($textTop).addClass('fadeIn');
                     }, 5700);
@@ -285,11 +286,6 @@ jQuery(function() {
     };
 
     function computerTurn() {
-        computerPlayer.gameboard.board.forEach(cell => {
-            jQuery($computerBoard[cell.index]).css('cursor', 'default');
-            jQuery($computerBoard[cell.index]).off();
-        });
-
         jQuery($textTop).removeClass('fadeIn');
         jQuery($textBottom).removeClass('fadeIn');
         jQuery($textBottomRight).removeClass('fadeIn');
@@ -304,16 +300,19 @@ jQuery(function() {
             jQuery($textTop).addClass('invisible');
             jQuery($textBottom).addClass('invisible');
             jQuery($textBottomRight).addClass('invisible');
+        }, 2500);
+
+        setTimeout(() => {
             jQuery($textTop).removeClass('fadeOut');
             jQuery($textBottom).removeClass('fadeOut');
             jQuery($textBottomRight).removeClass('fadeOut');
-        }, 2500);
+        }, 2600);
 
         setTimeout(() => {
             jQuery($textTop).text('The enemy is taking aim . . .');
             jQuery($textTop).removeClass('invisible');
             jQuery($textTop).addClass('fadeIn');
-        }, 2600);
+        }, 2700);
 
         setTimeout(() => {
             jQuery($textTop).removeClass('fadeIn');
@@ -339,10 +338,10 @@ jQuery(function() {
             setTimeout(() => {
                 jQuery($playerBoard[nextComputerMove]).attr('id', 'no-hit');
                 jQuery($playerBoard[nextComputerMove]).removeClass('blueToGreen');
-                jQuery($textBottom).text('and it\'s a miss.');
             }, 6000);
             
             setTimeout(() => {
+                jQuery($textBottom).text('and it\'s a miss.');
                 jQuery($textBottom).removeClass('invisible');
                 jQuery($textBottom).addClass('fadeIn');
                 nextComputerMove = computerMoves.determineMove(playerStatus);
@@ -371,10 +370,10 @@ jQuery(function() {
                 setTimeout(() => {
                     jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
                     jQuery($playerBoard[nextComputerMove]).removeClass('yellowToRed');
-                    jQuery($textBottom).text('and it\'s a hit!');
                 }, 6000);
 
                 setTimeout(() => {
+                    jQuery($textBottom).text('and it\'s a hit!');
                     jQuery($textBottom).removeClass('invisible');
                     jQuery($textBottom).addClass('fadeIn');
                     nextComputerMove = computerMoves.determineMove(playerStatus);
@@ -396,9 +395,8 @@ jQuery(function() {
 
             } else {
                 const shipName = computerStatus.shipId;
-                jQuery($textBottomRight).text('');
-                const sunkText = jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
-                sunkText.addClass('invisible');
+                jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
+                //jQuery($textBottomRight).addClass('invisible');
 
                 if (!playerStatus.allSunk) {
                     setTimeout(() => {
@@ -408,18 +406,18 @@ jQuery(function() {
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
                         jQuery($playerBoard[nextComputerMove]).removeClass('yellowToRed');
-                        jQuery($textBottom).text('and it\'s a hit!');
-                        jQuery($textBottom).append(sunkText);
                     }, 6000);
 
                     setTimeout(() => {
+                        jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                     }, 6200);
 
                     setTimeout(() => {
-                        sunkText.removeClass('invisible');
-                        sunkText.addClass('fadeIn');
+                        jQuery($textBottomRight).removeClass('invisible');
+                        jQuery($textBottomRight).addClass('fadeIn');
                         nextComputerMove = computerMoves.determineMove(playerStatus);
                         playerStatus = userPlayer.takeHit(nextComputerMove);
                     }, 6700);
@@ -439,6 +437,10 @@ jQuery(function() {
                     }, 7700);
 
                 } else {
+                    const shipName = computerStatus.shipId;
+                    jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
+                    //jQuery($textBottomRight).addClass('invisible');
+
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).addClass('yellowToRed');
                     }, 5500);
@@ -446,18 +448,18 @@ jQuery(function() {
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
                         jQuery($playerBoard[nextComputerMove]).removeClass('yellowToRed');
-                        jQuery($textBottom).text('and it\'s a hit!');
-                        jQuery($textBottom).append(sunkText);
                     }, 6000);
 
                     setTimeout(() => {
+                        jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                     }, 6200);
 
                     setTimeout(() => {
-                        sunkText.removeClass('invisible');
-                        sunkText.addClass('fadeIn');
+                        jQuery($textBottomRight).removeClass('invisible');
+                        jQuery($textBottomRight).addClass('fadeIn');
                     }, 6700);
 
                     setTimeout(() => {
@@ -467,37 +469,29 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('invisible');
-                        jQuery($textBottom).addClass('invisible');
+                        jQuery($textBottom).addClass('hide');
                         jQuery($textTop).removeClass('fadeOut');
-                        jQuery($textBottom).removeClass('fadeOut');
                     }, 9000);
 
                     setTimeout(() => {
-                        jQuery($textBottomRight).text('');
-                        jQuery($textTop).text('The enemy has won.');
-                        jQuery($textBottom).text('Better luck next time.');
-                        jQuery($replayBtn).removeClass('hide');
                         jQuery($replayBtn).addClass('invisible');
+                        jQuery($replayBtn).removeClass('hide');
                     }, 9100);
 
                     setTimeout(() => {
+                        jQuery($textTop).text('The enemy has won... Better luck next time.');
                         jQuery($textTop).removeClass('invisible');
                         jQuery($textTop).addClass('fadeIn');
                     }, 9200);
 
                     setTimeout(() => {
-                        jQuery($textBottom).removeClass('invisible');
-                        jQuery($textBottom).addClass('fadeIn');
-                    }, 9700);
-
-                    setTimeout(() => {
                         jQuery($replayBtn).removeClass('invisible');
                         jQuery($replayBtn).addClass('fadeIn');
-                    }, 10700);
+                    }, 10200);
 
                     setTimeout(() => {
                         jQuery($replayBtn).on('click', resetGame);
-                    }, 11700);
+                    }, 11200);
                 }
             }
         }
