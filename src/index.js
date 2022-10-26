@@ -16,7 +16,7 @@ jQuery(function() {
     const $computerBoard = $('.computer-board').children();
     const $textTop = $('.text-top');
     const $textBottom = $('.text-bottom');
-    const $textBottomRight = $('<p></p>');
+    const $textBottomRight = $('<span></span>');
     const $replayBtn = $('.replay-btn');
 
     $(window).on('load', () => {
@@ -162,7 +162,6 @@ jQuery(function() {
                 jQuery($textBottomRight).text('');
                 const sunkText = jQuery($textBottomRight).text(`You sunk their ${shipName}.`);
                 sunkText.addClass('invisible');
-                jQuery($textBottom).append(sunkText);
 
                 if (!computerStatus.allSunk) {
                     setTimeout(() => {
@@ -179,6 +178,7 @@ jQuery(function() {
         
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(sunkText);
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                         markSunkShip(shipName);
