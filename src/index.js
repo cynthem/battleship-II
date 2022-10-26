@@ -287,6 +287,10 @@ jQuery(function() {
     };
 
     function resetGame() {
-        window.location.reload(true);
+        $('.content').addClass('slowFadeOut');
+
+        setTimeout(() => {
+            window.location.reload(true);
+        }, 2500);
     };
 });
