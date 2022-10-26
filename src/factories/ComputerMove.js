@@ -16,9 +16,10 @@ export default class ComputerMove {
         const matchingIndex = this.availableCells.indexOf(matchingLocation);
         this.availableCells.splice(matchingIndex, 1);
 
-        let nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
+        let nextMove;
 
         if (status.shipId === 'none' || status.isSunk) {
+            nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
             return nextMove;
 
         } else {
@@ -31,17 +32,17 @@ export default class ComputerMove {
             if (index === 0 || index === 9) {
                 if (this.availableCells.includes(choiceThree)) {
                     nextMove = choiceThree;
-                    return nextMove;
                 } else {
-                    return nextMove;
+                    nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
                 }
+                return nextMove;
             } else if (index === 90 || index === 99) {
                 if (this.availableCells.includes(choiceFour)) {
                     nextMove = choiceFour;
-                    return nextMove;
                 } else {
-                    return nextMove;
+                    nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
                 }
+                return nextMove;
             } else if (
                 index === 10 || 
                 index === 20 || 
@@ -75,11 +76,11 @@ export default class ComputerMove {
                     choices.push(choiceFour);
                 }
                 if (choices.length < 1) {
-                    return nextMove;
+                    nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
                 } else {
                     nextMove = choices[Math.floor(Math.random() * choices.length)];
-                    return nextMove;
                 }
+                return nextMove;
             } else {
                 if (this.availableCells.includes(choiceOne)) {
                     if (
@@ -114,10 +115,11 @@ export default class ComputerMove {
                     }
                 }
                 if (choices.length < 1) {
-                    return nextMove;
+                    nextMove = this.availableCells[Math.floor(Math.random() * this.availableCells.length)];
                 } else {
                     nextMove = choices[Math.floor(Math.random() * choices.length)];
                 }
+                return nextMove;
             }
         }
     }
