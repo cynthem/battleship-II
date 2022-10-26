@@ -1,6 +1,6 @@
 import Player from "./factories/Player";
 import ComputerMove from "./factories/ComputerMove";
-import '../dist/style.css';
+import './index.css';
 import 'jquery';
 
 jQuery(function() {

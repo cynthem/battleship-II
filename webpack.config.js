@@ -2,16 +2,18 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   entry: './src/index.js',
   devtool: 'inline-source-map',
   plugins: [
-    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       title: 'Battleship',
       template: path.join(__dirname, './src/custom.html')
     }),
+    new MiniCssExtractPlugin(),
+    new CssMinimizerPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
@@ -19,10 +21,10 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
+      /*{
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
-      },
+      },*/
       {
         test: /.s?css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
@@ -35,6 +37,12 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       }*/
+    ]
+  },
+  optimization: {
+    minimizer: [
+        `...`,
+        new CssMinimizerPlugin()
     ]
   },
   resolve: {
