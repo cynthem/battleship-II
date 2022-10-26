@@ -259,14 +259,18 @@ jQuery(function() {
                     }, 5700);
 
                     setTimeout(() => {
-                        jQuery($playerBoard).addClass('grow');
-                        jQuery($computerBoard).addClass('grow');
+                        jQuery($playerBoard).addClass('shrink');
+                        jQuery($computerBoard).addClass('shrink');
                     }, 6700);
 
                     setTimeout(() => {
+                        jQuery($playerBoard).removeClass('shrink');
+                        jQuery($computerBoard).removeClass('shrink');
+                        jQuery($playerBoard).addClass('grow');
+                        jQuery($computerBoard).addClass('grow');
                         jQuery($replayBtn).removeClass('invisible');
                         jQuery($replayBtn).addClass('fadeIn');
-                    }, 7200);
+                    }, 7450);
 
                     setTimeout(() => {
                         jQuery($replayBtn).on('click', resetGame);
