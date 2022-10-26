@@ -134,7 +134,7 @@ jQuery(function() {
                 jQuery($textBottom).removeClass('invisible');
                 jQuery($textBottom).addClass('fadeIn');
                 computerTurn();
-            }, 1700);
+            }, 2000);
             
         } else {
             if (!computerStatus.isSunk) {
@@ -155,7 +155,7 @@ jQuery(function() {
                     jQuery($textBottom).removeClass('invisible');
                     jQuery($textBottom).addClass('fadeIn');
                     computerTurn();
-                }, 1700);
+                }, 2000);
 
             } else {
                 const shipName = computerStatus.shipId;
@@ -182,13 +182,16 @@ jQuery(function() {
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                         markSunkShip(shipName);
-                    }, 1700);
+                    }, 2000);
 
                     setTimeout(() => {
                         sunkText.removeClass('invisible');
                         sunkText.addClass('fadeIn');
+                    }, 2500);
+
+                    setTimeout(() => {
                         computerTurn();
-                    }, 2200);
+                    }, 3500);
 
                 } else {
                     setTimeout(() => {
@@ -209,24 +212,24 @@ jQuery(function() {
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                         markSunkShip(shipName);
-                    }, 1700);
+                    }, 2000);
 
                     setTimeout(() => {
                         sunkText.removeClass('invisible');
                         sunkText.addClass('fadeIn');
-                    }, 2200);
+                    }, 2500);
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('fadeOut');
                         jQuery($textBottom).addClass('fadeOut');
-                    }, 3200);
+                    }, 3500);
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('invisible');
                         jQuery($textBottom).addClass('invisible');
                         jQuery($textTop).removeClass('fadeOut');
                         jQuery($textBottom).removeClass('fadeOut');
-                    }, 3700);
+                    }, 4000);
 
                     setTimeout(() => {
                         jQuery($textTop).text('');
@@ -242,21 +245,21 @@ jQuery(function() {
                         jQuery($textBottom).addClass('fadeIn');
                         jQuery($playerBoard).addClass('grow');
                         jQuery($computerBoard).addClass('grow');
-                    }, 3800);
+                    }, 4100);
 
                     setTimeout(() => {
                         jQuery($playerBoard).removeClass('grow');
                         jQuery($computerBoard).removeClass('grow');
-                    }, 4550);
+                    }, 4850);
 
                     setTimeout(() => {
                         jQuery($replayBtn).removeClass('invisible');
                         jQuery($replayBtn).addClass('fadeIn');
-                    }, 4800);
+                    }, 5100);
 
                     setTimeout(() => {
                         jQuery($replayBtn).on('click', resetGame);
-                    }, 5800);
+                    }, 6100);
                 }
             }
         }
@@ -270,7 +273,39 @@ jQuery(function() {
     const textLoseTop = 'The enemy has won.';
     const textLoseBottom = 'Better luck next time.';
 
-    function computerTurn() {};
+    function computerTurn() {
+        computerPlayer.gameboard.board.forEach(cell => {
+            jQuery($computerBoard[cell.index]).css('cursor', 'default');
+            jQuery($computerBoard[cell.index]).off();
+        });
+
+        jQuery($textTop).removeClass('fadeIn');
+        jQuery($textBottom).removeClass('fadeIn');
+        jQuery($textBottomRight).removeClass('fadeIn');
+
+        setTimeout(() => {
+            jQuery($textTop).addClass('fadeOut');
+            jQuery($textBottom).addClass('fadeOut');
+            jQuery($textBottomRight).addClass('fadeOut');
+        }, 2000);
+
+        setTimeout(() => {
+            jQuery($textTop).addClass('invisible');
+            jQuery($textBottom).addClass('invisible');
+            jQuery($textBottomRight).addClass('invisible');
+        }, 2500);
+
+        setTimeout(() => {
+            jQuery($textTop).text('');
+            jQuery($textBottom).text('');
+            jQuery($textBottomRight).text('');
+            jQuery($textTop).text('The enemy is taking aim . . .');
+            jQuery($textTop).removeClass('invisible');
+            jQuery($textTop).addClass('fadeIn');
+        }, 2600);
+
+        
+    };
 
     function markSunkShip(shipName) {
         computerPlayer.gameboard.board.forEach(cell => {
