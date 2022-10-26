@@ -44,6 +44,11 @@
     to { opacity: 0; }
 }
 
+@keyframes slowFadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 @keyframes blueToYellow {
     from { background-color: #70c9d3; }
     to { background-color: #f9c800; }
@@ -223,6 +228,14 @@ body {
     opacity: 0;
 }
 
+.hide {
+    display: none;
+}
+
+.active {
+    transform: scale(0.9);
+}
+
 .fadeIn {
     animation: fadeIn 1s ease-in;
 }
@@ -231,12 +244,8 @@ body {
     animation: fadeOut 0.5s ease-in;
 }
 
-.hide {
-    display: none;
-}
-
-.active {
-    transform: scale(0.9);
+.slowfadeOut {
+    animation: slowFadeOut 2.5s;
 }
 
 .blueToYellow {

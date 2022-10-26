@@ -205,6 +205,7 @@ jQuery(function() {
         
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(sunkText);
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
                         markSunkShip(shipName);
@@ -239,7 +240,14 @@ jQuery(function() {
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textTop).addClass('fadeIn');
                         jQuery($textBottom).addClass('fadeIn');
+                        jQuery($playerBoard).addClass('grow');
+                        jQuery($computerBoard).addClass('grow');
                     }, 3800);
+
+                    setTimeout(() => {
+                        jQuery($playerBoard).removeClass('grow');
+                        jQuery($computerBoard).removeClass('grow');
+                    }, 4550);
 
                     setTimeout(() => {
                         jQuery($replayBtn).removeClass('invisible');
@@ -278,5 +286,7 @@ jQuery(function() {
         });
     };
 
-    function resetGame() {};
+    function resetGame() {
+        window.location.reload(true);
+    };
 });
