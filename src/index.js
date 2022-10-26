@@ -151,6 +151,7 @@ jQuery(function() {
             }, 3200);
             
         } else {
+            jQuery($textBottom).text('and it\'s a hit!');
             if (!computerStatus.isSunk) {
                 setTimeout(() => {
                     hitCell.addClass('blueToYellow');
@@ -159,7 +160,7 @@ jQuery(function() {
                 setTimeout(() => {
                     hitCell.attr('id', 'ship');
                     hitCell.removeClass('blueToYellow');
-                    jQuery($textBottom).text('and it\'s a hit!');
+                    //jQuery($textBottom).text('and it\'s a hit!');
                 }, 2000);
     
                 setTimeout(() => {
@@ -173,9 +174,9 @@ jQuery(function() {
 
             } else {
                 const shipName = computerStatus.shipId;
-                jQuery($textBottomRight).text('');
-                const sunkText = jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-                sunkText.addClass('invisible');
+                //jQuery($textBottomRight).text('');
+                jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
+                //sunkText.addClass('invisible');
 
                 if (!computerStatus.allSunk) {
                     setTimeout(() => {
@@ -185,8 +186,9 @@ jQuery(function() {
                     setTimeout(() => {
                         hitCell.attr('id', 'ship');
                         hitCell.removeClass('blueToYellow');
-                        jQuery($textBottom).text('and it\'s a hit!');
-                        jQuery($textBottom).append(sunkText);
+                        //jQuery($textBottom).text('and it\'s a hit!');
+                        //jQuery($textBottom).append(sunkText);
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                     }, 2000);
         
                     setTimeout(() => {
@@ -199,8 +201,8 @@ jQuery(function() {
                     }, 2500);
 
                     setTimeout(() => {
-                        sunkText.removeClass('invisible');
-                        sunkText.addClass('fadeIn');
+                        jQuery($textBottomRight).removeClass('invisible');
+                        jQuery($textBottomRight).addClass('fadeIn');
                     }, 3000);
 
                     setTimeout(() => {
@@ -215,8 +217,9 @@ jQuery(function() {
                     setTimeout(() => {
                         hitCell.attr('id', 'ship');
                         hitCell.removeClass('blueToYellow');
-                        jQuery($textBottom).text('and it\'s a hit!');
-                        jQuery($textBottom).append(sunkText);
+                        //jQuery($textBottom).text('and it\'s a hit!');
+                        //jQuery($textBottom).append(sunkText);
+                        jQuery($textBottom).append(jQuery($textBottomRight));
                     }, 2000);
         
                     setTimeout(() => {
@@ -240,17 +243,18 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textTop).addClass('invisible');
-                        jQuery($textBottom).addClass('invisible');
+                        //jQuery($textBottom).addClass('invisible');
+                        jQuery($textBottom).addClass('hide');
                         jQuery($textTop).removeClass('fadeOut');
                         jQuery($textBottom).removeClass('fadeOut');
                     }, 5500);
 
                     setTimeout(() => {
-                        jQuery($textBottomRight).text('');
-                        jQuery($textBottom).text('');
+                        //jQuery($textBottomRight).text('');
+                        //jQuery($textBottom).text('');
                         jQuery($textTop).text(`Congratulations ${playerName}, you win!`);
-                        jQuery($replayBtn).removeClass('hide');
                         jQuery($replayBtn).addClass('invisible');
+                        jQuery($replayBtn).removeClass('hide');
                     }, 5600);
 
                     setTimeout(() => {
