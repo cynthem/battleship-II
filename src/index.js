@@ -32,12 +32,13 @@ jQuery(function() {
 
         setTimeout(() => {
             $('.new-game').removeClass('move-up');
-        }, 2000); 
+        }, 1500); 
     });
 
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
+        $('.player-name').text('');
         $('.player-name').text($inputName);
         $('.player-name').removeClass('invisible');
         $('.player-name').addClass('fadeIn');
