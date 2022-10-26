@@ -253,7 +253,7 @@ body {
     animation: fadeOut 0.5s ease-in;
 }
 
-.slowfadeOut {
+.slowFadeOut {
     animation: slowFadeOut 2.5s;
 }
 

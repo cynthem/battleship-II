@@ -179,7 +179,6 @@ jQuery(function() {
             } else {
                 const shipName = computerStatus.shipId;
                 jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-                //jQuery($textBottomRight).addClass('invisible');
 
                 if (!computerStatus.allSunk) {
                     setTimeout(() => {
@@ -214,7 +213,6 @@ jQuery(function() {
                 } else {
                     const shipName = computerStatus.shipId;
                     jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-                    //jQuery($textBottomRight).addClass('invisible');
 
                     setTimeout(() => {
                         hitCell.addClass('blueToYellow');
@@ -396,7 +394,6 @@ jQuery(function() {
             } else {
                 const shipName = computerStatus.shipId;
                 jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
-                //jQuery($textBottomRight).addClass('invisible');
 
                 if (!playerStatus.allSunk) {
                     setTimeout(() => {
@@ -439,7 +436,6 @@ jQuery(function() {
                 } else {
                     const shipName = computerStatus.shipId;
                     jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
-                    //jQuery($textBottomRight).addClass('invisible');
 
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).addClass('yellowToRed');
