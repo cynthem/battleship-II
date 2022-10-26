@@ -247,8 +247,8 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textBottomRight).text('');
-                        jQuery($textTop).text(`Congratulations ${playerName},`);
-                        jQuery($textBottom).text('you\'re the winner!');
+                        jQuery($textBottom).text('');
+                        jQuery($textTop).text(`Congratulations ${playerName}, you win!`);
                         jQuery($replayBtn).removeClass('hide');
                         jQuery($replayBtn).addClass('invisible');
                     }, 5600);
@@ -257,11 +257,6 @@ jQuery(function() {
                         jQuery($textTop).removeClass('invisible');
                         jQuery($textTop).addClass('fadeIn');
                     }, 5700);
-
-                    setTimeout(() => {
-                        jQuery($textBottom).removeClass('invisible');
-                        jQuery($textBottom).addClass('fadeIn');
-                    }, 6200);
 
                     setTimeout(() => {
                         jQuery($playerBoard).addClass('grow');

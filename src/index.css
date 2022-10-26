@@ -34,6 +34,11 @@
     to { transform: scale(1); }
 }
 
+@keyframes shrink {
+    from { transform: scale(1); }
+    to { transform: scale(0); }
+}
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -230,6 +235,10 @@ body {
 
 .grow {
     animation: grow 0.75s ease-in;
+}
+
+.shrink {
+    animation: shrink 0.75s ease-in;
 }
 
 .move-up {
