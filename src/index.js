@@ -265,12 +265,6 @@ jQuery(function() {
         }
     };
 
-    //const textMiss = 'and it\'s a miss.';
-    //const textHit = 'and it\'s a hit!';
-    const testComputerSunk = ' They sunk your';
-    const textLoseTop = 'The enemy has won.';
-    const textLoseBottom = 'Better luck next time.';
-
     function computerTurn() {
         computerPlayer.gameboard.board.forEach(cell => {
             jQuery($computerBoard[cell.index]).css('cursor', 'default');
@@ -345,7 +339,142 @@ jQuery(function() {
                         });
                     }
                 });
-            }, 5800);
+            }, 6000);
+
+        } else {
+            if (!playerStatus.isSunk) {
+                setTimeout(() => {
+                    jQuery($textTop).removeClass('invisible');
+                    jQuery($textTop).addClass('fadeIn');
+                    jQuery($playerBoard[nextComputerMove]).addClass('blueToRed');
+                }, 4500);
+
+                setTimeout(() => {
+                    jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
+                    jQuery($playerBoard[nextComputerMove]).removeClass('blueToRed');
+                }, 5000);
+
+                setTimeout(() => {
+                    jQuery($textBottom).text('and it\'s a hit!');
+                    jQuery($textBottom).removeClass('invisible');
+                    jQuery($textBottom).addClass('fadeIn');
+    
+                    nextComputerMove = computerMoves.determineMove(playerStatus);
+                    playerStatus = userPlayer.takeHit(nextComputerMove);
+    
+                    computerPlayer.gameboard.board.forEach(cell => {
+                        if (!jQuery($computerBoard[cell.index]).attr('id')) {
+                            jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
+            
+                            jQuery($computerBoard[cell.index]).on('click', event => {
+                                const hitCell = jQuery(event.currentTarget);
+                                hitCell.addClass('active');
+                                userTurn(hitCell);
+                            });
+                        }
+                    });
+                }, 6000);
+
+            } else {
+                const shipName = computerStatus.shipId;
+                jQuery($textBottomRight).text('');
+                const sunkText = jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
+                sunkText.addClass('invisible');
+
+                if (!playerStatus.allSunk) {
+                    setTimeout(() => {
+                        jQuery($textTop).removeClass('invisible');
+                        jQuery($textTop).addClass('fadeIn');
+                        jQuery($playerBoard[nextComputerMove]).addClass('blueToRed');
+                    }, 4500);
+    
+                    setTimeout(() => {
+                        jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
+                        jQuery($playerBoard[nextComputerMove]).removeClass('blueToRed');
+                    }, 5000);
+
+                    setTimeout(() => {
+                        jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottom).append(sunkText);
+                        jQuery($textBottom).removeClass('invisible');
+                        jQuery($textBottom).addClass('fadeIn');
+                    }, 6000);
+
+                    setTimeout(() => {
+                        sunkText.removeClass('invisible');
+                        sunkText.addClass('fadeIn');
+                    }, 6500);
+
+                    setTimeout(() => {
+                        nextComputerMove = computerMoves.determineMove(playerStatus);
+                        playerStatus = userPlayer.takeHit(nextComputerMove);
+        
+                        computerPlayer.gameboard.board.forEach(cell => {
+                            if (!jQuery($computerBoard[cell.index]).attr('id')) {
+                                jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
+                
+                                jQuery($computerBoard[cell.index]).on('click', event => {
+                                    const hitCell = jQuery(event.currentTarget);
+                                    hitCell.addClass('active');
+                                    userTurn(hitCell);
+                                });
+                            }
+                        });
+                    }, 7000);
+
+                } else {
+                    setTimeout(() => {
+                        jQuery($textTop).removeClass('invisible');
+                        jQuery($textTop).addClass('fadeIn');
+                        jQuery($playerBoard[nextComputerMove]).addClass('blueToRed');
+                    }, 4500);
+
+                    setTimeout(() => {
+                        jQuery($playerBoard[nextComputerMove]).attr('id', 'sunk');
+                        jQuery($playerBoard[nextComputerMove]).removeClass('blueToRed');
+                    }, 5000);
+
+                    setTimeout(() => {
+                        sunkText.removeClass('invisible');
+                        sunkText.addClass('fadeIn');
+                    }, 6500);
+
+                    setTimeout(() => {
+                        jQuery($textTop).addClass('fadeOut');
+                        jQuery($textBottom).addClass('fadeOut');
+                    }, 7500);
+
+                    setTimeout(() => {
+                        jQuery($textTop).addClass('invisible');
+                        jQuery($textBottom).addClass('invisible');
+                        jQuery($textTop).removeClass('fadeOut');
+                        jQuery($textBottom).removeClass('fadeOut');
+                    }, 8000);
+
+                    setTimeout(() => {
+                        jQuery($textTop).text('');
+                        jQuery($textBottom).text('');
+                        jQuery($textBottomRight).text('');
+                        jQuery($textTop).text('The enemy has won.');
+                        jQuery($textBottom).text('Better luck next time.');
+                        jQuery($replayBtn).removeClass('hide');
+                        jQuery($replayBtn).addClass('invisible');
+                        jQuery($textTop).removeClass('invisible');
+                        jQuery($textBottom).removeClass('invisible');
+                        jQuery($textTop).addClass('fadeIn');
+                        jQuery($textBottom).addClass('fadeIn');
+                    }, 8100);
+
+                    setTimeout(() => {
+                        jQuery($replayBtn).removeClass('invisible');
+                        jQuery($replayBtn).addClass('fadeIn');
+                    }, 9100);
+
+                    setTimeout(() => {
+                        jQuery($replayBtn).on('click', resetGame);
+                    }, 10100);
+                }
+            }
         }
     };
 
