@@ -39,12 +39,11 @@ jQuery(function() {
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
-
         $('.new-game-form').addClass('fadeOut');
         $('.new-game-msg').addClass('fadeOut');
-        $('.player-name').text($inputName);
 
         setTimeout(() => {
+            $('.player-name').text($inputName);
             $('.player-name').removeClass('invisible');
             $('.computer-name').removeClass('invisible');
             $('.player-name').addClass('fadeIn');
