@@ -107,11 +107,11 @@ body {
 /* GAME BOARDS SECTION */
 
 .gameboards {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
     align-items: center;
-    justify-items: center;
-    padding: 0 60px;
+    gap: 16vw;
 }
 
 .player-name,
