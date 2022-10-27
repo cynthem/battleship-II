@@ -55,10 +55,6 @@ jQuery(function() {
         setTimeout(() => {
             beginGame($inputName, 'computer');
         }, 2000);
-
-        setTimeout(() => {
-            $textTop.fadeIn(1000);
-        }, 3000);
     });
 
     function beginGame(userName, computerName) {
@@ -73,26 +69,34 @@ jQuery(function() {
         userPlayer.gameboard.board.forEach(cell => {
             if (cell.shipId !== 'none') {
                 jQuery($playerBoard[cell.index]).addClass('blueToYellow');
+                
                 setTimeout(() => {
                     jQuery($playerBoard[cell.index]).attr('id', 'ship');
-                    jQuery($playerBoard[cell.index]).removeClass('blueToYellow');
                 }, 500);
+
+                setTimeout(() => {
+                    jQuery($playerBoard[cell.index]).removeClass('blueToYellow');
+                }, 600);
             }
         });
 
-        computerPlayer.gameboard.board.forEach(cell => {
-            if (cell.shipId !== 'none') {
-                jQuery($computerBoard[cell.index]).addClass('computer-ship');
-            }
+        setTimeout(() => {
+            jQuery($textTop).removeClass('invisible');
+            jQuery($textTop).addClass('fadeIn');
 
-            jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
-
-            jQuery($computerBoard[cell.index]).on('click', event => {
-                const hitCell = jQuery(event.currentTarget);
-                hitCell.addClass('active');
-                userTurn(hitCell);
+            computerPlayer.gameboard.board.forEach(cell => {
+                if (cell.shipId !== 'none') {
+                    jQuery($computerBoard[cell.index]).addClass('computer-ship');
+                }
+                jQuery($computerBoard[cell.index]).css('cursor', 'pointer');
+    
+                jQuery($computerBoard[cell.index]).on('click', event => {
+                    const hitCell = jQuery(event.currentTarget);
+                    hitCell.addClass('active');
+                    userTurn(hitCell);
+                });
             });
-        });
+        }, 1000);
     };
 
     function userTurn(hitCell) {
@@ -292,42 +296,42 @@ jQuery(function() {
             jQuery($textTop).addClass('fadeOut');
             jQuery($textBottom).addClass('fadeOut');
             jQuery($textBottomRight).addClass('fadeOut');
-        }, 2000);
+        }, 1500);
 
         setTimeout(() => {
             jQuery($textTop).addClass('invisible');
             jQuery($textBottom).addClass('invisible');
             jQuery($textBottomRight).addClass('invisible');
-        }, 2500);
+        }, 2000);
 
         setTimeout(() => {
             jQuery($textTop).removeClass('fadeOut');
             jQuery($textBottom).removeClass('fadeOut');
             jQuery($textBottomRight).removeClass('fadeOut');
-        }, 2600);
+        }, 2100);
 
         setTimeout(() => {
             jQuery($textTop).text('The enemy is taking aim . . .');
             jQuery($textTop).removeClass('invisible');
             jQuery($textTop).addClass('fadeIn');
-        }, 2700);
+        }, 2200);
 
         setTimeout(() => {
             jQuery($textTop).removeClass('fadeIn');
             jQuery($textTop).addClass('fadeOut');
-        }, 4400);
+        }, 3900);
 
         setTimeout(() => {
             jQuery($textTop).addClass('invisible');
             jQuery($textTop).removeClass('fadeOut');
-        }, 4900);
+        }, 4400);
 
         setTimeout(() => {
             jQuery($textTop).text('The enemy fires a shot . . .');
             jQuery($textTop).removeClass('invisible');
             jQuery($textTop).addClass('fadeIn');
-        }, 5000);
-
+        }, 4500);
+        return;
         if (playerStatus.shipId === 'none') {
             setTimeout(() => {
                 jQuery($playerBoard[nextComputerMove]).addClass('blueToGreen');
