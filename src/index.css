@@ -114,6 +114,10 @@ body {
     padding: 0 60px;
 }
 
+@media (max-width: 850px) {
+    
+}
+
 .player-name,
 .computer-name {
     text-align: center;
@@ -283,4 +287,13 @@ body {
 
 #no-hit {
     background-color: #40bc93;
+}
+
+
+/* MOBILE & RESPONSIVE STYLES */
+
+@media (max-width: 950px) {
+    .gameboards {
+        padding: 0 20px;
+    }
 }

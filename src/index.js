@@ -38,7 +38,6 @@ jQuery(function() {
 
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
-        resetGame();
         const $inputName = $('.new-game-input').val();
 
         $('.new-game-form').addClass('fadeOut');
