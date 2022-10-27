@@ -39,6 +39,11 @@ jQuery(function() {
         }, 1500); 
     });
 
+    $(window).on('resize', () => {
+        let $vh = $(window).height() * 0.01;
+        $('.content').css('--vh', `${$vh}px`);
+    });
+
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         const $inputName = $('.new-game-input').val();
