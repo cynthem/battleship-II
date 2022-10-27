@@ -44,24 +44,11 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },
-      /*{
-        exclude: ['node_modules'], 
-        loader: 'babel', 
-        test: /\.jsx?$/
-      },
-      {
-        loader: 'style-loader!css-loader', 
-        test: /\.css$/
-      },
-      {
-        loader: 'file-loader', 
-        test: /\.(ttf|eot|svg)$/
-      },*/
       {
         loader: 'url-loader', 
         test: /\.gif$/
-      },
-    ],
+      }
+    ]
   },
   optimization: {
     minimizer: [
@@ -78,5 +65,5 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'assets/[hash][ext][query]'
-  },
+  }
 };
