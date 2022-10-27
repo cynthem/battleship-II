@@ -93,7 +93,7 @@ body {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     display: grid;
-    grid-template-rows: 80px auto 160px;
+    grid-template-rows: 80px 1fr 160px;
 }
 
 .header {
@@ -331,7 +331,7 @@ body {
 
 @media (max-width: 630px) {
     .content {
-        grid-template-rows: 60px auto 160px;
+        grid-template-rows: 60px 1fr 160px;
     }
     .header {
         font-size: 2.75rem;
@@ -369,7 +369,7 @@ body {
 
 @media (max-width: 530px) {
     .content {
-        grid-template-rows: 50px auto 120px;
+        grid-template-rows: 50px 1fr 120px;
     }
     .header {
         font-size: 2.25rem;
@@ -397,14 +397,14 @@ body {
 
 @media (max-width: 330px) {
     .content {
-        grid-template-rows: 50px auto 100px;
+        grid-template-rows: 50px 1fr 100px;
     }
     .header {
         font-size: 2rem;
     }
     .gameboards {
         gap: 25px;
-        padding-top: 150px;
+        /*padding-top: 150px;*/
     }
     .player-name,
     .computer-name {
