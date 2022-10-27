@@ -19,6 +19,9 @@ jQuery(function() {
     const $textBottomRight = $('<span></span>');
     const $replayBtn = $('.replay-btn');
 
+    let $vh = $(window).height() * 0.01;
+    $('.content').css('--vh', `${$vh}px`);
+
     $(window).on('load', () => {
         $('.gameboards').removeClass('invisible');
         $playerBoard.addClass('grow');
