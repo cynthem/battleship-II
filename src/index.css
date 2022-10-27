@@ -114,10 +114,6 @@ body {
     padding: 0 60px;
 }
 
-@media (max-width: 850px) {
-    
-}
-
 .player-name,
 .computer-name {
     text-align: center;
@@ -295,5 +291,141 @@ body {
 @media (max-width: 950px) {
     .gameboards {
         padding: 0 20px;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        font-size: 3rem;
+    }
+    .player-name,
+    .computer-name {
+        font-size: 1.5rem;
+    }
+    .player-board,
+    .computer-board {
+        width: 250px;
+        height: 250px;
+    }
+    .player-board > button,
+    .computer-board > button {
+        height: 24px;
+        width: 24px;
+    }
+    .new-game,
+    .gameplay-text {
+        width: 600px;
+        border-top-left-radius: 100px;
+        border-top-right-radius: 100px;
+        padding-top: 40px;
+        /*font-size: 1.5rem;*/
+    }
+    /*.new-game-form {
+        padding-top: 25px;
+    }
+    .new-game-input {
+        font-size: 1.25rem;
+        width: 250px;
+        padding: 6px;
+    }
+    .new-game-submit,
+    .replay-btn {
+        font-size: 1.25rem;
+        padding: 8px 12px 4px;
+        margin-left: 20px;
+    }
+    .text-bottom-container {
+        gap: 20px;
+        padding-top: 30px;
+    }*/
+    .text-top,
+    .text-bottom {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 630px) {
+    .content {
+        grid-template-rows: 60px auto 160px;
+    }
+    .header {
+        font-size: 2.75rem;
+    }
+    .gameboards {
+        padding-top: 30px;
+        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 30px;
+        overflow-y: scroll;
+    }
+    .player-name,
+    .computer-name {
+        font-size: 1.25rem;
+        padding-bottom: 10px;
+    }
+    .new-game,
+    .gameplay-text {
+        width: 400px;
+        border-top-left-radius: 50px;
+        border-top-right-radius: 50px;
+        padding-top: 30px;
+        /*font-size: 1.5rem;*/
+    }
+}
+
+@media (max-width: 530px) {
+    .content {
+        grid-template-rows: 50px auto 120px;
+    }
+    .header {
+        font-size: 2.25rem;
+        letter-spacing: 0.3rem;
+    }
+    .new-game,
+    .gameplay-text {
+        width: 300px;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding-top: 20px;
+        /*font-size: 1.5rem;*/
+    }
+    .text-bottom-container {
+        padding-top: 20px;
+    }
+    .text-top,
+    .text-bottom {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 330px) {
+    .content {
+        grid-template-rows: 50px auto 100px;
+    }
+    .header {
+        font-size: 2rem;
+    }
+    .gameboards {
+        padding-top: 20px;
+    }
+    .player-name,
+    .computer-name {
+        font-size: 1.1rem;
+    }
+    .new-game,
+    .gameplay-text {
+        width: 280px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        padding-top: 15px;
+        /*font-size: 1.5rem;*/
+    }
+    .text-bottom-container {
+        padding-top: 15px;
+    }
+    .text-top,
+    .text-bottom {
+        font-size: 0.8rem;
     }
 }
