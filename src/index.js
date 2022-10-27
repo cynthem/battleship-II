@@ -512,7 +512,10 @@ jQuery(function() {
         $('.content').addClass('slowFadeOut');
 
         setTimeout(() => {
-            window.location.reload(true);
-        }, 2500);
+            $('.content').addClass('invisible');
+            location.reload();
+        }, 2000);
+
+        //setTimeout(())
     };
 });
