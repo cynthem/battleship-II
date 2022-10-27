@@ -43,10 +43,8 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
-      }
-    ],
-    loaders: [
-      {
+      },
+      /*{
         exclude: ['node_modules'], 
         loader: 'babel', 
         test: /\.jsx?$/
@@ -56,12 +54,12 @@ module.exports = {
         test: /\.css$/
       },
       {
-        loader: 'url-loader', 
-        test: /\.gif$/
-      },
-      {
         loader: 'file-loader', 
         test: /\.(ttf|eot|svg)$/
+      },*/
+      {
+        loader: 'url-loader', 
+        test: /\.gif$/
       },
     ],
   },
