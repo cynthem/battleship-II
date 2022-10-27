@@ -20,6 +20,7 @@ jQuery(function() {
     const $replayBtn = $('.replay-btn');
 
     $(window).on('load', () => {
+        $('.gameboards').removeClass('invisible');
         $playerBoard.addClass('grow');
         $computerBoard.addClass('grow');
         
@@ -38,7 +39,7 @@ jQuery(function() {
     $('.new-game-form').on('submit', event => {
         event.preventDefault();
         resetGame();
-        /*const $inputName = $('.new-game-input').val();
+        const $inputName = $('.new-game-input').val();
 
         $('.new-game-form').addClass('fadeOut');
         $('.new-game-msg').addClass('fadeOut');
@@ -59,7 +60,7 @@ jQuery(function() {
 
         setTimeout(() => {
             $textTop.fadeIn(1000);
-        }, 3000);*/
+        }, 3000);
     });
 
     function beginGame(userName, computerName) {
@@ -515,7 +516,5 @@ jQuery(function() {
             $('.content').addClass('invisible');
             location.reload();
         }, 2000);
-
-        //setTimeout(())
     };
 });
