@@ -44,15 +44,26 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       }
-      /*{
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },*/
-      /*{
-        test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      }*/
-    ]
+    ],
+    loaders: [
+      {
+        exclude: ['node_modules'], 
+        loader: 'babel', 
+        test: /\.jsx?$/
+      },
+      {
+        loader: 'style-loader!css-loader', 
+        test: /\.css$/
+      },
+      {
+        loader: 'url-loader', 
+        test: /\.gif$/
+      },
+      {
+        loader: 'file-loader', 
+        test: /\.(ttf|eot|svg)$/
+      },
+    ],
   },
   optimization: {
     minimizer: [
