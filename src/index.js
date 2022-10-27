@@ -3,7 +3,7 @@ import ComputerMove from "./factories/ComputerMove";
 import './index.css';
 import 'jquery';
 
-/*jQuery(function() {
+jQuery(function() {
     let playerName;
     let userPlayer;
     let computerPlayer;
@@ -516,4 +516,4 @@ import 'jquery';
             location.reload();
         }, 2000);
     };
-});*/
+});
