@@ -146,8 +146,9 @@ jQuery(function() {
         const hitIndex = Number(stringIndex);
         
         computerStatus = computerPlayer.takeHit(hitIndex);
+        const shipName = computerStatus.shipId;
 
-        if (computerStatus.shipId === 'none') {
+        if (shipName === 'none') {
             setTimeout(() => {
                 hitCell.addClass('blueToGreen');
             }, 1500);
@@ -189,9 +190,6 @@ jQuery(function() {
                 }, 3200);
 
             } else {
-                const shipName = computerStatus.shipId;
-                jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-
                 if (!computerStatus.allSunk) {
                     setTimeout(() => {
                         hitCell.addClass('blueToYellow');
@@ -204,6 +202,7 @@ jQuery(function() {
         
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
                         jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
@@ -223,9 +222,6 @@ jQuery(function() {
                     }, 4200);
 
                 } else {
-                    const shipName = computerStatus.shipId;
-                    jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
-
                     setTimeout(() => {
                         hitCell.addClass('blueToYellow');
                     }, 1500);
@@ -237,6 +233,7 @@ jQuery(function() {
         
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottomRight).text(` You sunk their ${shipName}.`);
                         jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
@@ -340,7 +337,9 @@ jQuery(function() {
             jQuery($textTop).addClass('fadeIn');
         }, 4000);
 
-        if (playerStatus.shipId === 'none') {
+        const shipName = playerStatus.shipId;
+
+        if (shipName === 'none') {
             setTimeout(() => {
                 jQuery($playerBoard[nextComputerMove]).addClass('blueToGreen');
             }, 4500);
@@ -404,9 +403,6 @@ jQuery(function() {
                 }, 6200);
 
             } else {
-                const shipName = computerStatus.shipId;
-                jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
-
                 if (!playerStatus.allSunk) {
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).addClass('yellowToRed');
@@ -419,6 +415,7 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
                         jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
@@ -446,9 +443,6 @@ jQuery(function() {
                     }, 6700);
 
                 } else {
-                    const shipName = computerStatus.shipId;
-                    jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
-
                     setTimeout(() => {
                         jQuery($playerBoard[nextComputerMove]).addClass('yellowToRed');
                     }, 4500);
@@ -460,6 +454,7 @@ jQuery(function() {
 
                     setTimeout(() => {
                         jQuery($textBottom).text('and it\'s a hit!');
+                        jQuery($textBottomRight).text(` They sunk your ${shipName}.`);
                         jQuery($textBottom).append(jQuery($textBottomRight));
                         jQuery($textBottom).removeClass('invisible');
                         jQuery($textBottom).addClass('fadeIn');
