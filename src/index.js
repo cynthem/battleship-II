@@ -22,22 +22,20 @@ jQuery(function() {
     let $vh = $(window).height() * 0.01;
     $('.content').css('--vh', `${$vh}px`);
 
-    $(window).on('load', () => {
-        $('.gameboards').removeClass('invisible');
-        $playerBoard.addClass('grow');
-        $computerBoard.addClass('grow');
-        
-        setTimeout(() => {
-            $('.new-game').removeClass('hide');
-            $('.new-game').addClass('move-up');
-            $playerBoard.removeClass('grow');
-            $computerBoard.removeClass('grow');
-        }, 1000);
+    $('.gameboards').removeClass('invisible');
+    $playerBoard.addClass('grow');
+    $computerBoard.addClass('grow');
+    
+    setTimeout(() => {
+        $('.new-game').removeClass('hide');
+        $('.new-game').addClass('move-up');
+        $playerBoard.removeClass('grow');
+        $computerBoard.removeClass('grow');
+    }, 1000);
 
-        setTimeout(() => {
-            $('.new-game').removeClass('move-up');
-        }, 1500); 
-    });
+    setTimeout(() => {
+        $('.new-game').removeClass('move-up');
+    }, 1500); 
 
     $(window).on('resize', () => {
         let $vh = $(window).height() * 0.01;
