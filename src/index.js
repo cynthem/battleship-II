@@ -122,24 +122,6 @@ jQuery(function() {
                 jQuery($computerBoard[cell.index]).off();
             });
         }, 100);
-        
-        setTimeout(() => {
-            jQuery($textTop).addClass('invisible');
-            jQuery($textBottom).addClass('invisible');
-            jQuery($textBottomRight).addClass('invisible');
-        }, 600);
-
-        setTimeout(() => {
-            jQuery($textTop).removeClass('fadeOut');
-            jQuery($textBottom).removeClass('fadeOut');
-            jQuery($textBottomRight).removeClass('fadeOut');
-        }, 700);
-
-        setTimeout(() => {
-            jQuery($textTop).text('You fire a shot into enemy waters . . .');
-            jQuery($textTop).removeClass('invisible');
-            jQuery($textTop).addClass('fadeIn');
-        }, 800);
 
         const hitCellClass = hitCell.attr('class');
         const stringIndex = hitCellClass.slice(9, 11);
@@ -147,16 +129,31 @@ jQuery(function() {
         
         computerStatus = computerPlayer.takeHit(hitIndex);
         const shipName = computerStatus.shipId;
-
+        
         if (shipName === 'none') {
             setTimeout(() => {
                 hitCell.addClass('blueToGreen');
-            }, 1500);
+            }, 300);
 
+            setTimeout(() => {
+                jQuery($textTop).addClass('invisible');
+                jQuery($textBottom).addClass('invisible');
+                jQuery($textBottomRight).addClass('invisible');
+            }, 600);
+    
+            setTimeout(() => {
+                jQuery($textTop).removeClass('fadeOut');
+                jQuery($textBottom).removeClass('fadeOut');
+                jQuery($textBottomRight).removeClass('fadeOut');
+            }, 700);
+    
             setTimeout(() => {
                 hitCell.attr('id', 'no-hit');
                 hitCell.removeClass('blueToGreen');
-            }, 2000);
+                jQuery($textTop).text('You fire a shot into enemy waters . . .');
+                jQuery($textTop).removeClass('invisible');
+                jQuery($textTop).addClass('fadeIn');
+            }, 800);
 
             setTimeout(() => {
                 jQuery($textBottom).text('and it\'s a miss.');

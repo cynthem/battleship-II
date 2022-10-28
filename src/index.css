@@ -250,7 +250,7 @@ body {
 }
 
 .fadeIn {
-    animation: fadeIn 1s ease-in;
+    animation: fadeIn 0.5s ease-in;
 }
 
 .fadeOut {
