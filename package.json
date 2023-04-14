@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/doozles411/battleship-II.git"
+    "url": "git+https://github.com/cynthem/battleship-II.git"
   },
   "keywords": [
     "battleship",
@@ -20,9 +20,9 @@
   "author": "CMP",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/doozles411/battleship-II/issues"
+    "url": "https://github.com/cynthem/battleship-II/issues"
   },
-  "homepage": "https://github.com/doozles411/battleship-II#readme",
+  "homepage": "https://github.com/cynthem/battleship-II#readme",
   "devDependencies": {
     "@babel/core": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
