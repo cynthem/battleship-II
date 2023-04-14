@@ -1,7 +1,7 @@
 # Battleship v2
-> Live demo [_here_](https://doozles411.github.io/battleship-II/)
+> Live demo [_here_](https://cynthem.github.io/battleship-II/)
 
-> Version 2 of a static Battleship page (see original [_here_](https://github.com/doozles411/Battleship)). Uses jQuery in this version, rather than JavaScript only. Other updates include mobile and responsive styling, improved animations, and refactored code.
+> Version 2 of a static Battleship page (see original [_here_](https://github.com/cynthem/Battleship)). Uses jQuery in this version, rather than JavaScript only. Other updates include mobile and responsive styling, improved animations, and refactored code.
 
 > Features that remain the same include using classes to track ships, gameboards, players, and computer AI that uses an algorithm to target nearby board tiles after the computer hits a ship. Also uses Jest for testing and is bundled with Webpack. This project was completed as part of The Odin Project's Full Stack Javascript curriculum.
 
